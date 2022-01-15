@@ -1,14 +1,26 @@
 package ru.my.retail.person;
 
+import ru.my.retail.shop.Shop;
+
 public class Customer extends Person {
 
-    private String address;
+    private String name = "John", genderOfPerson = "man", address = "Lenina 54";
+    private short age = 37;
+    private int customerMoney = 15000;
 
-    public Customer(String name, String genderOfPerson, short age, String address) {
-        super(name, genderOfPerson, age);
-        this.address = address;
 
+    public Customer() {
+        super();
     }
+
+    public Customer(String name, String genderOfPerson, String address, short age, int customerMoney) {
+        this.name = name;
+        this.genderOfPerson = genderOfPerson;
+        this.address = address;
+        this.age = age;
+        this.customerMoney = customerMoney;
+    }
+
 
     @Override
     public void display() {
@@ -53,5 +65,32 @@ public class Customer extends Person {
         this.address = address;
     }
 
+    public int getCustomerMoney() {
+        return customerMoney;
+    }
+
+    public void setCustomerMoney(int customerMoney) {
+        if (customerMoney > 500 && customerMoney < 10000000)
+            this.customerMoney = customerMoney;
+    }
+
+    // достаточно ли денег у покупателя
+    public int checkCustomerMoney() {
+        if (customerMoney > 1000) {
+            System.out.println("Покупатель " + name + " идёт в магазин за продуктами, у него достаточно денег!");
+
+        } else
+            System.out.println("Покупатель " + name + " не идёт в магазин");
+        return customerMoney;
+    }
+
+    // вход покупателя в магазин
+    public void enterTheShop(Shop shop) {
+        System.out.println("Покупатель " + name + " входит в магазин " + shop.getNameShop() + " который находиться " +
+                "по адресу " + shop.getShopAddress() + ".");
+
+    }
 
 }
+
+

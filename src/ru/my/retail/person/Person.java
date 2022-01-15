@@ -5,13 +5,11 @@ public abstract class Person {
     private String name, genderOfPerson;
     private short age;
 
-    public Person(String name, String genderOfPerson, short age) {
-        this.name = name;
-        this.genderOfPerson = genderOfPerson;
-        this.age = age;
+    public Person() {
+
     }
 
-        public abstract void display(); {
+    public abstract void display(); {
 
     }
 

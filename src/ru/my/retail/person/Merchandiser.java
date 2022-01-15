@@ -1,11 +1,23 @@
 package ru.my.retail.person;
 
+import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
+
 public class Merchandiser extends Person {
 
-    private String placeOfWork;
+    private String name = "Nika", genderOfPerson = "female", address = "Lenina 44";
+    private short age = 25;
+    private String placeOfWork = "Billa";
 
-    public Merchandiser(String name, String genderOfPerson, short age, String placeOfWork) {
-        super(name, genderOfPerson, age);
+    public Merchandiser(){
+        super();
+    }
+
+    public Merchandiser(String name, String genderOfPerson, String address, short age, String placeOfWork) {
+        this.name = name;
+        this.genderOfPerson = genderOfPerson;
+        this.address = address;
+        this.age = age;
         this.placeOfWork = placeOfWork;
     }
 
@@ -42,5 +54,26 @@ public class Merchandiser extends Person {
     @Override
     public void setAge(short age) {
         super.setAge(age);
+    }
+
+    public String getPlaceOfWork() {
+        return placeOfWork;
+    }
+
+    public void setPlaceOfWork(String placeOfWork) {
+        this.placeOfWork = placeOfWork;
+    }
+
+    // расчёт инфляции
+    public int inflation(FoodProduct foodProduct) {
+        int x = foodProduct.getProductPrice();
+        int y = 100;
+        int inflation = 20;
+        int z;
+        z = (x * inflation / y + x);
+        foodProduct.setProductPrice(z);
+        System.out.println("Мерчендайзер " + name + " меняет цену продукта - " + "В связи с ростом инфляции цена продукта "
+                + foodProduct.getProductName() + " составляет: " + z + " руб.");
+        return foodProduct.getProductPrice();
     }
 }

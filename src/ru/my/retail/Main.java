@@ -21,18 +21,25 @@ public class Main {
         Kassa kassaTwo = shop.getKassaTwo();
 // прибыль магазина
         int shopMoney = shop.getKassaOne().getMoney() + shop.getKassaTwo().getMoney();
-        System.out.println("Прибыль магазина " + shop.getNameShop() + " составляет " + shopMoney + " руб.");
+        System.out.println("Общая сумма в кассах магазина " + shop.getNameShop() + " составляет " + shopMoney + " руб.");
         shop.storeRevenue();
 // продукты
         Kefir kefir = new Kefir("Kefir Kefi",150,123456,"01/01/2022",
                 15.0,10.0,20.0,"15/01/2022","Manufacturer","Tetra Pack");
-
         Cheese cheese = new Cheese("Parmezan",900,789456,"01/01/2022",
                 10.0,25.0,40.0,"01/01/2024","Italiano","wox");
-
 // в главных ролях
-        Customer customer = new Customer("John","man",(short)36 ,"Lenina 54");
-        Merchandiser merchandiser = new Merchandiser("Nika","female",(short) 25,"Billa");
+        Customer customer = new Customer();
+// идёт ли он в магазин
+        customer.checkCustomerMoney();
+// покупатель входит в магазин
+        customer.enterTheShop(shop);
+// работник магизина
+        Merchandiser merchandiser = new Merchandiser();
+// замена ценников
+       merchandiser.inflation(kefir);
+       merchandiser.inflation(cheese);
+
 
 
 
