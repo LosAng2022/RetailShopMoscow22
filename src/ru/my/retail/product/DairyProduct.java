@@ -5,10 +5,10 @@ public class DairyProduct extends FoodProduct {
     private double carboHydrate;
     private double protein;
     private double calorieContent;
-    private String shelfLife;
+    private int shelfLife;
 
     public DairyProduct(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
-                        double protein, double calorieContent, String shelfLife) {
+                        double protein, double calorieContent, int shelfLife) {
         super(productName, productPrice, barCode, dateOfProduction);
         this.carboHydrate = carboHydrate;
         this.protein = protein;
@@ -43,11 +43,12 @@ public class DairyProduct extends FoodProduct {
         this.calorieContent = calorieContent;
     }
 
-    public String getShelfLife() {
+    public int getShelfLife() {
         return shelfLife;
     }
 
-    private void setShelfLife(String shelfLife) {
+    public void setShelfLife(int shelfLife) {
+        if (shelfLife > 5 && shelfLife < 30)
         this.shelfLife = shelfLife;
     }
 

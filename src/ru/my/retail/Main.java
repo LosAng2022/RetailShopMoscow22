@@ -7,6 +7,7 @@ import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Kassa;
 import ru.my.retail.shop.Shop;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -25,12 +26,12 @@ public class Main {
         shop.storeRevenue();
 // продукты
         Kefir kefir = new Kefir("Kefir Kefi",150,123456,"01/01/2022",
-                15.0,10.0,20.0,"15/01/2022","Manufacturer","Tetra Pack");
+                15.0,10.0,20.0,15,"Manufacturer","Tetra Pack");
         Cheese cheese = new Cheese("Parmezan",900,789456,"01/01/2022",
-                10.0,25.0,40.0,"01/01/2024","Italiano","wox");
+                10.0,25.0,40.0,20,"Italiano","wox");
 // в главных ролях
         Customer customer = new Customer();
-// идёт ли он в магазин
+// идёт ли он в магазин if и else
         customer.checkCustomerMoney();
 // покупатель входит в магазин
         customer.enterTheShop(shop);
@@ -39,9 +40,9 @@ public class Main {
 // замена ценников
        merchandiser.inflation(kefir);
        merchandiser.inflation(cheese);
-
-
-
+// проверка срока годности продукта if и else
+       merchandiser.checkShelfLife(kefir);
+       merchandiser.checkShelfLife(cheese);
 
 
     }

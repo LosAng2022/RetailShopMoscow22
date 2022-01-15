@@ -1,13 +1,15 @@
 package ru.my.retail.person;
-
+import java.util.Scanner;
+import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
-import ru.my.retail.product.Kefir;
+
 
 public class Merchandiser extends Person {
 
     private String name = "Nika", genderOfPerson = "female", address = "Lenina 44";
     private short age = 25;
     private String placeOfWork = "Billa";
+    private Scanner scanner;
 
     public Merchandiser(){
         super();
@@ -76,4 +78,20 @@ public class Merchandiser extends Person {
                 + foodProduct.getProductName() + " составляет: " + z + " руб.");
         return foodProduct.getProductPrice();
     }
+
+    // проверка срока годности продукта
+    public void checkShelfLife(DairyProduct dairyProduct) {
+        int day_x = 5;
+        int day_y = 30;
+        if (dairyProduct.getShelfLife() >= day_x && dairyProduct.getShelfLife() >= day_y) {
+            System.out.println("Продукт " + dairyProduct.getProductName() + " просрочен, убрать с полки.");
+        } else {
+            System.out.println("Продукт " + dairyProduct.getProductName() + " свежий, оставить на полке.");
+
+        }
+    }
+
 }
+
+
+
