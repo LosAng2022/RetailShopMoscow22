@@ -9,7 +9,7 @@ public class Merchandiser extends Person {
     private String name = "Nika", genderOfPerson = "female", address = "Lenina 44";
     private short age = 25;
     private String placeOfWork = "Billa";
-    private Scanner scanner;
+
 
     public Merchandiser(){
         super();
@@ -67,7 +67,7 @@ public class Merchandiser extends Person {
     }
 
     // расчёт инфляции
-    public int inflation(FoodProduct foodProduct) {
+    public void inflation(FoodProduct foodProduct) {
         int x = foodProduct.getProductPrice();
         int y = 100;
         int inflation = 20;
@@ -76,7 +76,7 @@ public class Merchandiser extends Person {
         foodProduct.setProductPrice(z);
         System.out.println("Мерчендайзер " + name + " меняет цену продукта - " + "В связи с ростом инфляции цена продукта "
                 + foodProduct.getProductName() + " составляет: " + z + " руб.");
-        return foodProduct.getProductPrice();
+
     }
 
     // проверка срока годности продукта
@@ -89,9 +89,12 @@ public class Merchandiser extends Person {
             System.out.println("Продукт " + dairyProduct.getProductName() + " свежий, оставить на полке.");
 
         }
+
     }
 
+
 }
+
 
 
 

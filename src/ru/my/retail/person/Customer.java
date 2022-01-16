@@ -2,11 +2,14 @@ package ru.my.retail.person;
 
 import ru.my.retail.shop.Shop;
 
+import java.util.Scanner;
+
 public class Customer extends Person {
 
     private String name = "John", genderOfPerson = "man", address = "Lenina 54";
     private short age = 37;
     private int customerMoney = 15000;
+    Scanner scanner = new Scanner(System.in);
 
 
     public Customer() {
@@ -82,6 +85,23 @@ public class Customer extends Person {
         } else
             System.out.println("Покупатель " + name + " не идёт в магазин");
         return customerMoney;
+    }
+// подсчёт купюр по 5000
+    public void moneyСounting() {
+        for (int banknote = 1; banknote <= 3; banknote++)
+            System.out.println(banknote + " купюра номиналом 5000 руб.");
+        System.out.println(" итого ".toUpperCase() + customerMoney + " руб.");
+
+    }
+    public void guessShop () {
+    String guess;
+        do {
+        System.out.print("Угадай название магазина: ");
+        guess = scanner.nextLine();
+    }
+        while (!"Billa".equals(guess));
+        System.out.println("Поздравляю! Ты угадал название магазина!");
+
     }
 
     // вход покупателя в магазин

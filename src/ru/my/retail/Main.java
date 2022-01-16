@@ -2,6 +2,7 @@ package ru.my.retail;
 
 import ru.my.retail.person.Customer;
 import ru.my.retail.person.Merchandiser;
+import ru.my.retail.person.Сashier;
 import ru.my.retail.product.Cheese;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Kassa;
@@ -20,11 +21,19 @@ public class Main {
 // создание кассы в магазине
         Kassa kassaOne = shop.getKassaOne();
         Kassa kassaTwo = shop.getKassaTwo();
+// кассир
+        Сashier cashier = new Сashier();
+// проверка кассира
+       cashier.checkCashier();
+// тест кассы
+        cashier.testKassa(); // while
+// отчёт по кассе
+        cashier.reportCashier(kassaOne); // тернарный оператор
 // прибыль магазина
         int shopMoney = shop.getKassaOne().getMoney() + shop.getKassaTwo().getMoney();
         System.out.println("Общая сумма в кассах магазина " + shop.getNameShop() + " составляет " + shopMoney + " руб.");
         shop.storeRevenue();
-// продукты
+       // продукты
         Kefir kefir = new Kefir("Kefir Kefi",150,123456,"01/01/2022",
                 15.0,10.0,20.0,15,"Manufacturer","Tetra Pack");
         Cheese cheese = new Cheese("Parmezan",900,789456,"01/01/2022",
@@ -33,6 +42,9 @@ public class Main {
         Customer customer = new Customer();
 // идёт ли он в магазин if и else
         customer.checkCustomerMoney();
+// покупатель додсчитал деньги
+        customer.moneyСounting(); // for
+        customer.guessShop(); // do while
 // покупатель входит в магазин
         customer.enterTheShop(shop);
 // работник магизина
@@ -43,7 +55,6 @@ public class Main {
 // проверка срока годности продукта if и else
        merchandiser.checkShelfLife(kefir);
        merchandiser.checkShelfLife(cheese);
-
 
     }
 }

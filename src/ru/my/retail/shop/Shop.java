@@ -8,7 +8,7 @@ public class Shop {
 
     public Shop(String nameShop, String shopAddress) {
         kassaOne = new Kassa("Касса № 1", 10000);
-        kassaTwo = new Kassa("Касса № 2", 10000);
+        kassaTwo = new Kassa("Касса № 2", 10005);
         this.nameShop = nameShop;
         this.shopAddress = shopAddress;
     }
