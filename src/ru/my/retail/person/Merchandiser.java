@@ -1,7 +1,11 @@
 package ru.my.retail.person;
 import java.util.Scanner;
+
+import ru.my.retail.product.Cheese;
 import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
+import ru.my.retail.shop.Shelf;
 
 
 public class Merchandiser extends Person {
@@ -89,11 +93,18 @@ public class Merchandiser extends Person {
             System.out.println("Продукт " + dairyProduct.getProductName() + " свежий, оставить на полке.");
 
         }
+    }
+        public void putProductOnTheShelf(Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo) {
+            String s = "Мерчендайзер " + name + " проверила продукт " + kefir.getProductName() +
+                     " и выставила аккуратно на полке № " + shelfOne.getNumber() + " с новой ценой "
+                    + kefir.getProductPrice() + " руб. - \n - " + " и продукт " + cheese.getProductName()
+                    + " на полке № " + shelfTwo.getNumber() + " с новой ценой " + cheese.getProductPrice() + " руб.";
+            System.out.println(s);
 
+        }
     }
 
 
-}
 
 
 

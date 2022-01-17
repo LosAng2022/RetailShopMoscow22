@@ -3,10 +3,14 @@ package ru.my.retail.shop;
 public class Shop {
     private String nameShop;
     private String shopAddress;
-    private Kassa kassaOne;
-    private Kassa kassaTwo;
+    private final Kassa kassaOne;
+    private final Kassa kassaTwo;
+    private final Shelf shelfOne, shelfTwo, shelfThree;
 
     public Shop(String nameShop, String shopAddress) {
+        shelfOne = new Shelf("Полка", 1);
+        shelfTwo = new Shelf("Полка", 2);
+        shelfThree = new Shelf("Полка" , 3);
         kassaOne = new Kassa("Касса № 1", 10000);
         kassaTwo = new Kassa("Касса № 2", 10005);
         this.nameShop = nameShop;
@@ -37,6 +41,18 @@ public class Shop {
         return kassaTwo;
     }
 
+    public Shelf getShelfOne() {
+        return shelfOne;
+    }
+
+    public Shelf getShelfTwo() {
+        return shelfTwo;
+    }
+
+    public Shelf getShelfThree() {
+        return shelfThree;
+    }
+
     public int storeRevenue() {  // выручка магазина
         int nds = 20;
         int x = 120;
@@ -46,4 +62,5 @@ public class Shop {
         System.out.println("Прибыль магазина " + nameShop + " составляет " + b + " руб." + " без НДС");
         return b;
     }
+
 }

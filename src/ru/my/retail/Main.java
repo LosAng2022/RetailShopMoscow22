@@ -6,6 +6,7 @@ import ru.my.retail.person.Сashier;
 import ru.my.retail.product.Cheese;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Kassa;
+import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
 import java.util.Random;
@@ -38,6 +39,12 @@ public class Main {
                 15.0,10.0,20.0,15,"Manufacturer","Tetra Pack");
         Cheese cheese = new Cheese("Parmezan",900,789456,"01/01/2022",
                 10.0,25.0,40.0,20,"Italiano","wox");
+ // продуктовые полки
+        Shelf shelfOne = shop.getShelfOne();
+        Shelf shelfTwo = shop.getShelfTwo();
+        Shelf shelfThree = shop.getShelfThree();
+// продукт на полке
+
 // в главных ролях
         Customer customer = new Customer();
 // идёт ли он в магазин if и else
@@ -49,12 +56,16 @@ public class Main {
         customer.enterTheShop(shop);
 // работник магизина
         Merchandiser merchandiser = new Merchandiser();
+
 // замена ценников
+
        merchandiser.inflation(kefir);
        merchandiser.inflation(cheese);
+        merchandiser.putProductOnTheShelf(kefir, cheese, shelfOne, shelfTwo);
 // проверка срока годности продукта if и else
-       merchandiser.checkShelfLife(kefir);
-       merchandiser.checkShelfLife(cheese);
+        merchandiser.checkShelfLife(kefir);
+        merchandiser.checkShelfLife(cheese);
+
 
     }
 }

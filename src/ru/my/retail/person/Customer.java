@@ -1,5 +1,8 @@
 package ru.my.retail.person;
 
+import ru.my.retail.product.DairyProduct;
+import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shop;
 
 import java.util.Scanner;
@@ -111,7 +114,21 @@ public class Customer extends Person {
 
     }
 
+    public void takeTheProduct(FoodProduct foodProduct) {
+        System.out.print("Покупатель " + name + " берёт продукт " + foodProduct.getProductName());
+        foodProduct.infoProduct();
+    }
 
+    public void viewTheContent(DairyProduct dairyProduct) {
+        System.out.print("Покупатель " + name + "смотрит состав продукта " + dairyProduct.getProductName());
+        dairyProduct.productContent();
+
+    }
+
+    public void productPutItInTheBasket(FoodProduct foodProduct) {
+        System.out.println("Покупатель " + name + " кладёт продукт " + foodProduct.getProductName() + " в корзину.");
+
+    }
 }
 
 
