@@ -6,7 +6,7 @@ public class Kefir extends DairyProduct {
 
     private String manufacturer;
     private String packaging;
-    private Shelf shelfOne;
+
 
     public Kefir(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
                  double protein, double calorieContent, int shelfLife, String manufacturer, String packaging) {

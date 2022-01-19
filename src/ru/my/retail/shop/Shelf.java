@@ -6,7 +6,7 @@ public class Shelf {
 
     private String name;
     private int number;
-    private Kefir kefir;
+
 
     public Shelf(String name, int number) {
 

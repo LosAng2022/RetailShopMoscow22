@@ -56,15 +56,16 @@ public class Main {
         customer.enterTheShop(shop);
 // работник магизина
         Merchandiser merchandiser = new Merchandiser();
-
-// замена ценников
-
-       merchandiser.inflation(kefir);
-       merchandiser.inflation(cheese);
-        merchandiser.putProductOnTheShelf(kefir, cheese, shelfOne, shelfTwo);
 // проверка срока годности продукта if и else
         merchandiser.checkShelfLife(kefir);
         merchandiser.checkShelfLife(cheese);
+// замена ценников
+       merchandiser.inflation(kefir);
+       merchandiser.inflation(cheese);
+// подсчёт продуктов
+       merchandiser.putProductOnTheShelf(kefir, cheese, shelfOne, shelfTwo);
+       merchandiser.countTheProductsOnTheShelf(kefir,cheese);
+
 
 
     }

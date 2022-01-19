@@ -96,13 +96,38 @@ public class Merchandiser extends Person {
     }
         public void putProductOnTheShelf(Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo) {
             String s = "Мерчендайзер " + name + " проверила продукт " + kefir.getProductName() +
-                     " и выставила аккуратно на полке № " + shelfOne.getNumber() + " с новой ценой "
+                    " и выставила аккуратно на полке № " + shelfOne.getNumber() + " с новой ценой "
                     + kefir.getProductPrice() + " руб. - \n - " + " и продукт " + cheese.getProductName()
                     + " на полке № " + shelfTwo.getNumber() + " с новой ценой " + cheese.getProductPrice() + " руб.";
             System.out.println(s);
-
         }
-    }
+            public void countTheProductsOnTheShelf(Kefir kefir, Cheese cheese) {
+                int kef = 0;
+                int che = 0;
+
+                for (int a1 = 1; a1 <= 1; a1++) {
+                    for (int b1 = 1; b1 <= 11; b1++) {
+                        kef++;
+                        System.out.print(kef + " ");
+
+                    }
+                    System.out.println(" - " + kefir.getProductName() + " шт.");
+
+                }
+                for (int c1 = 1; c1 <= 1; c1++) {
+                    for (int d1 = 1; d1 <= 15; d1++) {
+                        che++;
+                        System.out.print(che + " ");
+
+                    }
+                    System.out.println(" - " + cheese.getProductName() + " шт.");
+
+                }
+                }
+            }
+
+
+
 
 
 
