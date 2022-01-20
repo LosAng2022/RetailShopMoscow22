@@ -12,6 +12,7 @@ public class Customer extends Person {
     private String name = "John", genderOfPerson = "man", address = "Lenina 54";
     private short age = 37;
     private int customerMoney = 15000;
+    boolean theCustomerNeedsProducts;
     Scanner scanner = new Scanner(System.in);
 
 
@@ -19,12 +20,14 @@ public class Customer extends Person {
         super();
     }
 
-    public Customer(String name, String genderOfPerson, String address, short age, int customerMoney) {
+    public Customer(String name, String genderOfPerson, String address, short age, int customerMoney,
+                    boolean theCustomerNeedsProducts) {
         this.name = name;
         this.genderOfPerson = genderOfPerson;
         this.address = address;
         this.age = age;
         this.customerMoney = customerMoney;
+        this.theCustomerNeedsProducts = theCustomerNeedsProducts;
     }
 
 
@@ -81,39 +84,57 @@ public class Customer extends Person {
     }
 
     // достаточно ли денег у покупателя
-    public int checkCustomerMoney() {
+    private int checkCustomerMoney() {
         if (customerMoney > 1000) {
-            System.out.println("Покупатель " + name + " идёт в магазин за продуктами, у него достаточно денег!");
+            System.out.println("У " + name + " достаточно денег!");
 
         } else
-            System.out.println("Покупатель " + name + " не идёт в магазин");
+            System.out.println("У " + name + " не достаточно денег");
         return customerMoney;
     }
 // подсчёт купюр по 5000
-    public void moneyСounting() {
+    private void moneyСounting() {
         for (int banknote = 1; banknote <= 3; banknote++)
             System.out.println(banknote + " купюра номиналом 5000 руб.");
         System.out.println(" итого ".toUpperCase() + customerMoney + " руб.");
 
     }
-    public void guessShop () {
+    private void guessShop () {
     String guess;
         do {
         System.out.print("Угадай название магазина: ");
         guess = scanner.nextLine();
     }
         while (!"Billa".equals(guess));
-        System.out.println("Поздравляю! Ты угадал название магазина!");
+        System.out.println("Поздравляю! Вы угадали название магазина!");
 
     }
 
     // вход покупателя в магазин
-    public void enterTheShop(Shop shop) {
+    private void enterTheShop(Shop shop) {
         System.out.println("Покупатель " + name + " входит в магазин " + shop.getNameShop() + " который находиться " +
                 "по адресу " + shop.getShopAddress() + ".");
 
     }
 
+    private void checkCustomerNeedsProducts(Shop shop) {
+        boolean theCustomerNeedsProducts = true;
+        String s = theCustomerNeedsProducts ? "Иду в магазин!" : "Иду в баню!";
+        System.out.println(s);
+
+    }
+    public void checkCustomer(Shop shop) {
+        System.out.println("Привет покупатель! Идёшь ли ты в магазин? ");
+        checkCustomerNeedsProducts(shop);
+        System.out.println("Есть ли у покупателя денеги?");
+        checkCustomerMoney();
+        System.out.println(name + " решил пересчитать свои деньги");
+        moneyСounting();
+        System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
+        guessShop();
+        enterTheShop(shop);
+
+    }
     public void takeTheProduct(FoodProduct foodProduct) {
         System.out.print("Покупатель " + name + " берёт продукт " + foodProduct.getProductName());
         foodProduct.infoProduct();

@@ -63,21 +63,21 @@ public class Сashier extends Person {
     }
 
     // приветствие кассира
-    public void checkCashier() {
+    private void checkCashier() {
         System.out.println("Введите возраст (он же пин для кассы) " + age + ".");
         age = scanner.nextShort();
 
         System.out.println("Имя: " + name + " возраст " + age + " место работы: " + placeOfWork + " , кассир.");
     }
 
-    public void reportCashier(Kassa kassaOne) {
+    private void reportCashier(Kassa kassaOne) {
         int m = kassaOne.getMoney();
-        String s = m > 10000 ? "<Большая сумма, закрыть кассу на отчёт." : "Сумма в кассе не большая, продолжать работать.";
+        String s = m > 10000 ? "<Большая сумма, положить часть денег в сейф." : "Есть сумма в кассе необходимая для работы.";
         System.out.println(s.toUpperCase());
 
     }
 
-    public void testKassa() {  // проверка правильности работы кассы
+    private void testKassa() {  // проверка правильности работы кассы
         System.out.println("Проверка систем кассы");
         int x = 5;
         while (x > 0) {
@@ -89,5 +89,14 @@ public class Сashier extends Person {
 
     }
 
+    public void checkKassaAndCashier(Kassa kassaOne) {
+        System.out.println(name + " приступает к работе на кассе!");
+        checkCashier();
+        System.out.println("Проверяет работу кассы :");
+        testKassa();
+        System.out.println("Теперь нужно проверить сумму в кассе");
+        reportCashier(kassaOne);
+
+    }
 
 }
