@@ -3,6 +3,7 @@ package ru.my.retail.person;
 import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
+import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
 import java.util.Scanner;
@@ -136,20 +137,31 @@ public class Customer extends Person {
 
     }
     public void takeTheProduct(FoodProduct foodProduct) {
-        System.out.print("Покупатель " + name + " берёт продукт " + foodProduct.getProductName());
-        foodProduct.infoProduct();
+        System.out.print(name + " берёт продукт " + foodProduct.getProductName());
+
     }
 
     public void viewTheContent(DairyProduct dairyProduct) {
-        System.out.print("Покупатель " + name + "смотрит состав продукта " + dairyProduct.getProductName());
-        dairyProduct.productContent();
+        System.out.print(name + " смотрит состав продукта " + dairyProduct.getProductName());
+
 
     }
+
+    public void customerCameTheShelvesAnd(Shelf shelfOne, FoodProduct foodProduct, DairyProduct dairyProduct) {
+        System.out.println(name + " подходит к продуктовой полке № " + shelfOne.getNumber() +
+                " молочного отдела :");
+        takeTheProduct(dairyProduct);
+        foodProduct.infoProduct();
+        viewTheContent(dairyProduct);
+        dairyProduct.productContent();
+        }
 
     public void productPutItInTheBasket(FoodProduct foodProduct) {
         System.out.println("Покупатель " + name + " кладёт продукт " + foodProduct.getProductName() + " в корзину.");
 
     }
+
+
 }
 
 
