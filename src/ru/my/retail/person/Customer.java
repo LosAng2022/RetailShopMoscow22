@@ -2,6 +2,7 @@ package ru.my.retail.person;
 
 import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
@@ -9,9 +10,12 @@ import java.util.Scanner;
 
 public class Customer extends Person {
 
-    private String name = "John", genderOfPerson = "man", address = "Lenina 54";
-    private short age = 37;
-    private int customerMoney = 15000;
+    private String name, genderOfPerson, address;
+    private short age;
+    private final String NAME = "John", GENDER_OF_PERSON = "man", ADDRESS = "Lenina 54";
+    private final short AGE = 37;
+    private int customerMoney;
+    private final int CUSTOMER_MONEY = 15000;
     boolean theCustomerNeedsProducts;
     Scanner scanner = new Scanner(System.in);
 
@@ -20,6 +24,33 @@ public class Customer extends Person {
         super();
     }
 
+    public Customer(String name, String genderOfPerson, short age, int customerMoney){
+        super(name, genderOfPerson, age);
+            this.name = name;
+            this.age = age;
+            this.genderOfPerson = genderOfPerson;
+            this.customerMoney = customerMoney;
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
+
+    public String getGENDER_OF_PERSON() {
+        return GENDER_OF_PERSON;
+    }
+
+    public String getADDRESS() {
+        return ADDRESS;
+    }
+
+    public short getAGE() {
+        return AGE;
+    }
+
+    public int getCUSTOMER_MONEY() {
+        return CUSTOMER_MONEY;
+    }
 
     @Override
     public void display() {
@@ -74,19 +105,19 @@ public class Customer extends Person {
     }
 
     // достаточно ли денег у покупателя
-    private void checkCustomerMoney() {
+    public void checkCustomerMoney() {
         if (customerMoney > 1000) {
-            System.out.println("У " + name + " достаточно денег!");
+            System.out.println("У " + NAME + " достаточно денег!");
 
         } else
-            System.out.println("У " + name + " не достаточно денег");
+            System.out.println("У " + NAME + " не достаточно денег");
 
     }
 // подсчёт купюр по 5000
-    private void moneyCounting() {
+    public void moneyCounting() {
         for (int banknote = 1; banknote <= 3; banknote++)
             System.out.println(banknote + " купюра номиналом 5000 руб.");
-        System.out.println(" итого ".toUpperCase() + customerMoney + " руб.");
+        System.out.println(" итого ".toUpperCase() + CUSTOMER_MONEY + " руб.");
 
     }
     private void guessShop () {
@@ -101,9 +132,9 @@ public class Customer extends Person {
     }
 
     // вход покупателя в магазин
-    private void enterTheShop(Shop shop) {
-        System.out.println("Покупатель " + name + " входит в магазин " + shop.getNameShop() + " который находиться " +
-                "по адресу " + shop.getShopAddress() + ".");
+    public void enterTheShop(Shop shop) {
+        System.out.println("Покупатель " + NAME + " входит в магазин " + shop.getNameShop() + " который находиться " +
+                "по адресу " + shop.getSHOP_ADDRESS() + ".");
 
     }
 
@@ -118,7 +149,7 @@ public class Customer extends Person {
         checkCustomerNeedsProducts(shop);
         System.out.println("Есть ли у покупателя денеги?");
         checkCustomerMoney();
-        System.out.println(name + " решил пересчитать свои деньги");
+        System.out.println(NAME + " решил пересчитать свои деньги");
         moneyCounting();
         System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
         guessShop();
@@ -126,18 +157,18 @@ public class Customer extends Person {
 
     }
     public void takeTheProduct(FoodProduct foodProduct) {
-        System.out.print(name + " берёт продукт " + foodProduct.getProductName());
+        System.out.print(NAME + " берёт продукт " + foodProduct.getProductName());
 
     }
 
     public void viewTheContent(DairyProduct dairyProduct) {
-        System.out.print(name + " смотрит состав продукта " + dairyProduct.getProductName());
+        System.out.print(NAME + " смотрит состав продукта " + dairyProduct.getProductName());
 
 
     }
 
     public void customerCameTheShelvesAnd(Shelf shelfOne, FoodProduct foodProduct, DairyProduct dairyProduct) {
-        System.out.println(name + " подходит к продуктовой полке № " + shelfOne.getNumber() +
+        System.out.println(NAME + " подходит к продуктовой полке № " + shelfOne.getNumber() +
                 " молочного отдела :");
         takeTheProduct(dairyProduct);
         foodProduct.infoProduct();
@@ -146,11 +177,22 @@ public class Customer extends Person {
         }
 
     public void productPutItInTheBasket(FoodProduct foodProduct) {
-        System.out.println("Покупатель " + name + " кладёт продукт " + foodProduct.getProductName() + " в корзину.");
+        System.out.println("Покупатель " + NAME + " кладёт продукт " + foodProduct.getProductName() + " в корзину.");
 
     }
+        int [] array = new int[3];
+        Kefir [] basket = new Kefir[5];
 
+        Kefir kefirA = new Kefir();
+        Kefir kefirB = new Kefir();
+        Kefir kefirC = new Kefir();
 
+        Kefir [] basket2 = {kefirA, kefirB, kefirC};
+
+        public void foo() {
+            System.out.println(basket2[2]);
+
+        }
 }
 
 

@@ -9,6 +9,13 @@ public abstract class Person {
 
     }
 
+    public Person(String name, String genderOfPerson, short age) {
+        this.name = name;
+        this.age = age;
+        this.genderOfPerson = genderOfPerson;
+
+    }
+
     public abstract void display(); {
 
     }

@@ -7,8 +7,8 @@ public class DairyProduct extends FoodProduct {
     private double calorieContent;
     private int shelfLife;
 
-    public DairyProduct(String productName, int productPrice) {
-        super(productName, productPrice);
+    public DairyProduct() {
+        super();
     }
 
     public DairyProduct(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,

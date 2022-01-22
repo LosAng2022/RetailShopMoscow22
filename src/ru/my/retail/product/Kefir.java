@@ -4,17 +4,68 @@ import ru.my.retail.shop.Shelf;
 
 public class Kefir extends DairyProduct {
 
+    private final String PRODUCT_NAME = "Kefir Kefi";
+    private final int PRODUCT_PRISE = 80;
+    private final int BAR_CODE = 123456;
+    private final String DATE_OF_PRODUCTION = "20.12.2021";
+    private final double CARBO_HYDRATE = 15;
+    private final double PROTEIN = 10;
+    private final double CALORIES_CONTENT = 30;
+    private final String SHELF_LIFE = "31.12.2021";
     private String manufacturer;
-    private String packaging;
+    private String packing;
+    private final String MANUFACTURER = "MKK";
+    private final String PACKING = "Tetra Pack";
 
-    public Kefir(String productName, int productPrice) {
-        super(productName, productPrice);
+    public Kefir() {
+        super();
     }
+
     public Kefir(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
-                 double protein, double calorieContent, int shelfLife, String manufacturer, String packaging) {
+                 double protein, double calorieContent, int shelfLife, String manufacturer, String packing) {
         super(productName, productPrice, barCode, dateOfProduction, carboHydrate, protein, calorieContent, shelfLife);
         this.manufacturer = manufacturer;
-        this.packaging = packaging;
+        this.packing = packing;
+    }
+
+    public String getPRODUCT_NAME() {
+        return PRODUCT_NAME;
+    }
+
+    public int getPRODUCT_PRISE() {
+        return PRODUCT_PRISE;
+    }
+
+    public int getBAR_CODE() {
+        return BAR_CODE;
+    }
+
+    public String getDATE_OF_PRODUCTION() {
+        return DATE_OF_PRODUCTION;
+    }
+
+    public double getCARBO_HYDRATE() {
+        return CARBO_HYDRATE;
+    }
+
+    public double getPROTEIN() {
+        return PROTEIN;
+    }
+
+    public double getCALORIES_CONTENT() {
+        return CALORIES_CONTENT;
+    }
+
+    public String getSHELF_LIFE() {
+        return SHELF_LIFE;
+    }
+
+    public String getMANUFACTURER() {
+        return MANUFACTURER;
+    }
+
+    public String getPACKING() {
+        return PACKING;
     }
 
     @Override
@@ -110,11 +161,11 @@ public class Kefir extends DairyProduct {
         this.manufacturer = manufacturer;
     }
 
-    public String getPackaging() {
-        return packaging;
+    public String getPacking() {
+        return packing;
     }
 
-    public void setPackaging(String packaging) {
-        this.packaging = packaging;
+    public void setPackaging(String packing) {
+        this.packing = packing;
     }
 }

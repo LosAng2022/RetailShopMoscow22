@@ -7,7 +7,7 @@ public class FoodProduct {
     private int barCode;
     private String dateOfProduction;
 
-    public FoodProduct(String productName, int productPrice) {
+    public FoodProduct() {
 
     }
 

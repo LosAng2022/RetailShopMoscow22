@@ -8,15 +8,47 @@ import java.util.Scanner;
 
 public class Сashier extends Person {
 
-    String name = "Alice", genderOfPerson = "female", address = "Lenina 44";
-    private short age = 35;
-    private String placeOfWork = "Billa";
+    private String name, genderOfPerson;
+    private short age;
+    private final String NAME = "Alice", GENDER_OF_PERSON = "female", ADDRESS = "Lenina 44";
+    private final short AGE = 35;
+    private String placeOfWork;
+    private final String PLACE_OF_WORK = "Billa";
     private Kassa kassaOne;
     private Kassa kassaTwo;
     Scanner scanner = new Scanner(System.in);
 
     public Сashier() {
         super();
+    }
+
+    public Сashier(String name, String genderOfPerson, short age, String placeOfWork) {
+        super(name,genderOfPerson,age);
+        this.name = name;
+        this.age = age;
+        this.genderOfPerson = genderOfPerson;
+        this.placeOfWork = placeOfWork;
+
+    }
+
+    public String getNAME() {
+        return NAME;
+    }
+
+    public String getGENDER_OF_PERSON() {
+        return GENDER_OF_PERSON;
+    }
+
+    public String getADDRESS() {
+        return ADDRESS;
+    }
+
+    public short getAGE() {
+        return AGE;
+    }
+
+    public String getPLACE_OF_WORK() {
+        return PLACE_OF_WORK;
     }
 
     @Override
@@ -63,11 +95,11 @@ public class Сashier extends Person {
     }
 
     // приветствие кассира
-    private void checkCashier() {
-        System.out.println("Введите возраст (он же пин для кассы) " + age + ".");
+    public void checkCashier() {
+        System.out.println("Введите возраст (он же пин для кассы) " + AGE + ".");
         age = scanner.nextShort();
 
-        System.out.println("Имя: " + name + " возраст " + age + " место работы: " + placeOfWork + " , кассир.");
+        System.out.println("Имя: " + NAME + " возраст " + AGE + " место работы: " + placeOfWork + " , кассир.");
     }
 
     private void reportCashier(Kassa kassaOne) {
@@ -90,7 +122,7 @@ public class Сashier extends Person {
     }
 
     public void checkKassaAndCashier(Kassa kassaOne) {
-        System.out.println(name + " приступает к работе на кассе!");
+        System.out.println(NAME + " приступает к работе на кассе!");
         checkCashier();
         System.out.println("Проверяет работу кассы :");
         testKassa();
