@@ -43,6 +43,6 @@ public class Main {
 // Покупатель и его функции
         Customer customer = new Customer();
         customer.checkCustomer(shop);
-
+        customer.customerCameTheShelvesAnd(shelfOne, kefir, kefir);
     }
 }

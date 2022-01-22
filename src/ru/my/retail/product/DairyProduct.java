@@ -53,8 +53,8 @@ public class DairyProduct extends FoodProduct {
     }
 
     public double productContent() { // состав продукта
-        System.out.println(getProductName() + " углеводы: " + carboHydrate + ", белок: " + protein +
-                ", калории: " + calorieContent + ", срок годности: " + shelfLife + ".");
+        System.out.println(" углеводы: " + carboHydrate + ", белок: " + protein +
+                ", калории: " + calorieContent + ", срок годности: " + shelfLife + " дней.");
         return carboHydrate + protein + calorieContent;
     }
 }

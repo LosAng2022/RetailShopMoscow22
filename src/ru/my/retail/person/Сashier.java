@@ -7,8 +7,7 @@ import ru.my.retail.shop.Shop;
 import java.util.Scanner;
 
 public class Сashier extends Person {
-
-    private String name = "Alice", genderOfPerson = "female", address = "Lenina 44";
+    String name = "Alice", genderOfPerson = "female", address = "Lenina 44";
     private short age = 35;
     private String placeOfWork = "Billa";
     private Kassa kassaOne;
@@ -25,6 +24,7 @@ public class Сashier extends Person {
         this.address = address;
         this.age = age;
         this.placeOfWork = placeOfWork;
+
     }
 
     @Override

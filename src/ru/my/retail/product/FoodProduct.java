@@ -48,7 +48,7 @@ public class FoodProduct {
     }
 
     public void infoProduct() { // информация о продукте
-        System.out.println(productName + ", цена: " + productPrice + ", штрих-код: " + barCode
+        System.out.println(" с ценой: " + productPrice + " руб, штрих-код: " + barCode
                 + ", дата производства: " + dateOfProduction + ".");
     }
 }
