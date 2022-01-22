@@ -79,10 +79,10 @@ public class Сashier extends Person {
 
     private void testKassa() {  // проверка правильности работы кассы
         System.out.println("Проверка систем кассы");
-        int x = 5;
-        while (x > 0) {
-            System.out.println("код " + x + " успешно");
-            x--;
+        int x = 1;
+        while (x <= 7) {
+            System.out.println("тест системы " + x + " - успешно");
+            x++;
 
         }
 
