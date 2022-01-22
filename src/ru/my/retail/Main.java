@@ -4,11 +4,13 @@ import ru.my.retail.person.Customer;
 import ru.my.retail.person.Merchandiser;
 import ru.my.retail.person.Сashier;
 import ru.my.retail.product.Cheese;
+import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Kassa;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
+import java.lang.reflect.Array;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -44,5 +46,10 @@ public class Main {
         Customer customer = new Customer();
         customer.checkCustomer(shop);
         customer.customerCameTheShelvesAnd(shelfOne, kefir, kefir);
+
+
+
+
+        }
     }
-}
+

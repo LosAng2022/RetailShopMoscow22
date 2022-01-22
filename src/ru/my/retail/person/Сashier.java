@@ -7,6 +7,7 @@ import ru.my.retail.shop.Shop;
 import java.util.Scanner;
 
 public class Сashier extends Person {
+
     String name = "Alice", genderOfPerson = "female", address = "Lenina 44";
     private short age = 35;
     private String placeOfWork = "Billa";
@@ -14,17 +15,8 @@ public class Сashier extends Person {
     private Kassa kassaTwo;
     Scanner scanner = new Scanner(System.in);
 
-    public Сashier () {
+    public Сashier() {
         super();
-    }
-
-    public Сashier(String name, String genderOfPerson, String address, short age, String placeOfWork) {
-        this.name = name;
-        this.genderOfPerson = genderOfPerson;
-        this.address = address;
-        this.age = age;
-        this.placeOfWork = placeOfWork;
-
     }
 
     @Override
@@ -60,6 +52,14 @@ public class Сashier extends Person {
     @Override
     public void setAge(short age) {
         super.setAge(age);
+    }
+
+    public String getPlaceOfWork() {
+        return placeOfWork;
+    }
+
+    public void setPlaceOfWork(String placeOfWork) {
+        this.placeOfWork = placeOfWork;
     }
 
     // приветствие кассира

@@ -19,17 +19,10 @@ public class Merchandiser extends Person {
     DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
 
-    public Merchandiser(){
+    public Merchandiser() {
         super();
     }
 
-    public Merchandiser(String name, String genderOfPerson, String address, short age, String placeOfWork) {
-        this.name = name;
-        this.genderOfPerson = genderOfPerson;
-        this.address = address;
-        this.age = age;
-        this.placeOfWork = placeOfWork;
-    }
 
     @Override
     public void display() {

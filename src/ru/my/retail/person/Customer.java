@@ -2,7 +2,6 @@ package ru.my.retail.person;
 
 import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
-import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
@@ -19,16 +18,6 @@ public class Customer extends Person {
 
     public Customer() {
         super();
-    }
-
-    public Customer(String name, String genderOfPerson, String address, short age, int customerMoney,
-                    boolean theCustomerNeedsProducts) {
-        this.name = name;
-        this.genderOfPerson = genderOfPerson;
-        this.address = address;
-        this.age = age;
-        this.customerMoney = customerMoney;
-        this.theCustomerNeedsProducts = theCustomerNeedsProducts;
     }
 
 
@@ -85,16 +74,16 @@ public class Customer extends Person {
     }
 
     // достаточно ли денег у покупателя
-    private int checkCustomerMoney() {
+    private void checkCustomerMoney() {
         if (customerMoney > 1000) {
             System.out.println("У " + name + " достаточно денег!");
 
         } else
             System.out.println("У " + name + " не достаточно денег");
-        return customerMoney;
+
     }
 // подсчёт купюр по 5000
-    private void moneyСounting() {
+    private void moneyCounting() {
         for (int banknote = 1; banknote <= 3; banknote++)
             System.out.println(banknote + " купюра номиналом 5000 руб.");
         System.out.println(" итого ".toUpperCase() + customerMoney + " руб.");
@@ -130,7 +119,7 @@ public class Customer extends Person {
         System.out.println("Есть ли у покупателя денеги?");
         checkCustomerMoney();
         System.out.println(name + " решил пересчитать свои деньги");
-        moneyСounting();
+        moneyCounting();
         System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
         guessShop();
         enterTheShop(shop);

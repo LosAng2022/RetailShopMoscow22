@@ -7,6 +7,10 @@ public class FoodProduct {
     private int barCode;
     private String dateOfProduction;
 
+    public FoodProduct(String productName, int productPrice) {
+
+    }
+
     public FoodProduct(String productName, int productPrice, int barCode, String dateOfProduction) {
         this.productName = productName;
         this.productPrice = productPrice;
@@ -20,7 +24,7 @@ public class FoodProduct {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
+   }
 
     public int getProductPrice() {
         return productPrice;
@@ -28,7 +32,7 @@ public class FoodProduct {
 
     public void setProductPrice(int productPrice) {
         if (productPrice > 10 && productPrice < 10000)
-            this.productPrice = productPrice;
+           this.productPrice = productPrice;
     }
 
     public int getBarCode() {

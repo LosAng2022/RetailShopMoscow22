@@ -7,7 +7,9 @@ public class Kefir extends DairyProduct {
     private String manufacturer;
     private String packaging;
 
-
+    public Kefir(String productName, int productPrice) {
+        super(productName, productPrice);
+    }
     public Kefir(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
                  double protein, double calorieContent, int shelfLife, String manufacturer, String packaging) {
         super(productName, productPrice, barCode, dateOfProduction, carboHydrate, protein, calorieContent, shelfLife);
