@@ -1,5 +1,6 @@
 package ru.my.retail.person;
 
+import ru.my.retail.product.Cheese;
 import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
@@ -12,11 +13,9 @@ public class Customer extends Person {
 
     private String name, genderOfPerson, address;
     private short age;
-    private final String NAME = "John", GENDER_OF_PERSON = "man", ADDRESS = "Lenina 54";
-    private final short AGE = 37;
+    public static final String NAME = "John";
     private int customerMoney;
-    private final int CUSTOMER_MONEY = 15000;
-    boolean theCustomerNeedsProducts;
+        boolean theCustomerNeedsProducts;
     Scanner scanner = new Scanner(System.in);
 
 
@@ -30,26 +29,6 @@ public class Customer extends Person {
             this.age = age;
             this.genderOfPerson = genderOfPerson;
             this.customerMoney = customerMoney;
-    }
-
-    public String getNAME() {
-        return NAME;
-    }
-
-    public String getGENDER_OF_PERSON() {
-        return GENDER_OF_PERSON;
-    }
-
-    public String getADDRESS() {
-        return ADDRESS;
-    }
-
-    public short getAGE() {
-        return AGE;
-    }
-
-    public int getCUSTOMER_MONEY() {
-        return CUSTOMER_MONEY;
     }
 
     @Override
@@ -106,18 +85,24 @@ public class Customer extends Person {
 
     // достаточно ли денег у покупателя
     public void checkCustomerMoney() {
-        if (customerMoney > 1000) {
+        int x = customerMoney;
+        System.out.println("Введите сумму наличных (желательно более 1000) у покупателя :");
+        x = scanner.nextInt();
+        if (x > 1000) {
             System.out.println("У " + NAME + " достаточно денег!");
 
         } else
-            System.out.println("У " + NAME + " не достаточно денег");
+            System.exit(1000);
+
+
+
 
     }
-// подсчёт купюр по 5000
+// подсчёт денег
     public void moneyCounting() {
         for (int banknote = 1; banknote <= 3; banknote++)
-            System.out.println(banknote + " купюра номиналом 5000 руб.");
-        System.out.println(" итого ".toUpperCase() + CUSTOMER_MONEY + " руб.");
+            System.out.println(banknote + " наличные.");
+        System.out.println(" пачка денег ".toUpperCase());
 
     }
     private void guessShop () {
@@ -133,8 +118,8 @@ public class Customer extends Person {
 
     // вход покупателя в магазин
     public void enterTheShop(Shop shop) {
-        System.out.println("Покупатель " + NAME + " входит в магазин " + shop.getNameShop() + " который находиться " +
-                "по адресу " + shop.getSHOP_ADDRESS() + ".");
+        System.out.println("Покупатель " + NAME + " входит в магазин " + Shop.NAME_SHOP + " который находиться " +
+                "по адресу " + Shop.SHOP_ADDRESS + ".");
 
     }
 
@@ -176,23 +161,25 @@ public class Customer extends Person {
         dairyProduct.productContent();
         }
 
-    public void productPutItInTheBasket(FoodProduct foodProduct) {
-        System.out.println("Покупатель " + NAME + " кладёт продукт " + foodProduct.getProductName() + " в корзину.");
+    public void producInTheBasket(FoodProduct foodProduct) {
+        System.out.println("Покупатель " + NAME + " кладёт продукт в корзину.");
+
+        String [] kefir = new String[4];
+
+        kefir [0] = "Kefir";
+        kefir [1] = "Kefirik";
+        kefir [2] = "Proto Kefir";
+        kefir [3] = "Abstract Kefir";
+        for (int i = 0; i < 4; i++) {
+            System.out.println("У " + NAME + " в корзине находится продукт :" + kefir[i] + " и " + NAME + " сверяет его с "
+                    + kefir[2] + " по составу");
+
+
+            }
+        }
 
     }
-        int [] array = new int[3];
-        Kefir [] basket = new Kefir[5];
 
-        Kefir kefirA = new Kefir();
-        Kefir kefirB = new Kefir();
-        Kefir kefirC = new Kefir();
 
-        Kefir [] basket2 = {kefirA, kefirB, kefirC};
-
-        public void foo() {
-            System.out.println(basket2[2]);
-
-        }
-}
 
 

@@ -2,18 +2,18 @@ package ru.my.retail.product;
 
 public class Cheese extends DairyProduct {
 
-    private final String PRODUCT_NAME = "Parmezan";
-    private final int PRODUCT_PRISE = 950;
-    private final int BAR_CODE = 456789;
-    private final String DATE_OF_PRODUCTION = "20.12.2021";
-    private final double CARBO_HYDRATE = 10;
-    private final double PROTEIN = 25;
-    private final double CALORIES_CONTENT = 50;
-    private final String SHELF_LIFE = "31.12.2023";
+    public static final String PRODUCT_NAME = "Parmezan";
+    public static final int PRODUCT_PRISE = 950;
+    public static final int BAR_CODE = 456789;
+    public static final String DATE_OF_PRODUCTION = "20.12.2021";
+    public static final double CARBO_HYDRATE = 10;
+    public static final double PROTEIN = 25;
+    public static final double CALORIES_CONTENT = 50;
+    public static final String SHELF_LIFE = "31.12.2023";
     private String manufacturer;
     private String packing;
-    private final String MANUFACTURER = "Italiano Parmezano";
-    private final String PACKING = "Wox";
+    public static final String MANUFACTURER = "Italiano Parmezano";
+    public static final String PACKING = "Wox";
 
     public Cheese() {
         super();
@@ -23,46 +23,6 @@ public class Cheese extends DairyProduct {
         super(productName, productPrice, barCode, dateOfProduction, carboHydrate, protein, calorieContent, shelfLife);
         this.manufacturer = manufacturer;
         this.packing = packing;
-    }
-
-    public String getPRODUCT_NAME() {
-        return PRODUCT_NAME;
-    }
-
-    public int getPRODUCT_PRISE() {
-        return PRODUCT_PRISE;
-    }
-
-    public int getBAR_CODE() {
-        return BAR_CODE;
-    }
-
-    public String getDATE_OF_PRODUCTION() {
-        return DATE_OF_PRODUCTION;
-    }
-
-    public double getCARBO_HYDRATE() {
-        return CARBO_HYDRATE;
-    }
-
-    public double getPROTEIN() {
-        return PROTEIN;
-    }
-
-    public double getCALORIES_CONTENT() {
-        return CALORIES_CONTENT;
-    }
-
-    public String getSHELF_LIFE() {
-        return SHELF_LIFE;
-    }
-
-    public String getMANUFACTURER() {
-        return MANUFACTURER;
-    }
-
-    public String getPACKING() {
-        return PACKING;
     }
 
     @Override

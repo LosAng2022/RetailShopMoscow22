@@ -22,12 +22,12 @@ public class Main {
         Сashier cashier = new Сashier();
         cashier.checkKassaAndCashier(kassaOne);
  // прибыль магазина
-        int shopMoney = shop.getKassaOne().getMoney() + shop.getKassaTwo().getMoney();
-        System.out.println("Общая сумма в кассах магазина " + shop.getNAME_SHOP() + " составляет " + shopMoney + " руб.");
-        shop.storeRevenue();
+       int shopMoney = shop.getKassaOne().getMoney() + shop.getKassaTwo().getMoney();
+       System.out.println("Общая сумма в кассах магазина " + Shop.NAME_SHOP + " составляет " + shopMoney + " руб.");
+       shop.storeRevenue();
 // продукты
-        Kefir kefir = new Kefir();
-        Cheese cheese = new Cheese();
+        Kefir kefir = new Kefir(); kefir.setProductName("Kefir2");
+        Cheese cheese = new Cheese(); cheese.setProductName("Parmezan");
  // продуктовые полки
        Shelf shelfOne = shop.getShelfOne();
        Shelf shelfTwo = shop.getShelfTwo();
@@ -39,7 +39,7 @@ public class Main {
         Customer customer = new Customer();
       customer.checkCustomer(shop);
       customer.customerCameTheShelvesAnd(shelfOne, kefir, kefir);
-
+      customer.producInTheBasket(kefir);
 
         }
     }

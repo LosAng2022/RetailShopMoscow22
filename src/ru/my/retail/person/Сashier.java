@@ -10,10 +10,10 @@ public class Сashier extends Person {
 
     private String name, genderOfPerson;
     private short age;
-    private final String NAME = "Alice", GENDER_OF_PERSON = "female", ADDRESS = "Lenina 44";
-    private final short AGE = 35;
+    public static final String NAME = "Alice";
+    public static final short AGE = 35;
     private String placeOfWork;
-    private final String PLACE_OF_WORK = "Billa";
+    public static final String PLACE_OF_WORK = "Billa";
     private Kassa kassaOne;
     private Kassa kassaTwo;
     Scanner scanner = new Scanner(System.in);
@@ -29,26 +29,6 @@ public class Сashier extends Person {
         this.genderOfPerson = genderOfPerson;
         this.placeOfWork = placeOfWork;
 
-    }
-
-    public String getNAME() {
-        return NAME;
-    }
-
-    public String getGENDER_OF_PERSON() {
-        return GENDER_OF_PERSON;
-    }
-
-    public String getADDRESS() {
-        return ADDRESS;
-    }
-
-    public short getAGE() {
-        return AGE;
-    }
-
-    public String getPLACE_OF_WORK() {
-        return PLACE_OF_WORK;
     }
 
     @Override
@@ -99,7 +79,7 @@ public class Сashier extends Person {
         System.out.println("Введите возраст (он же пин для кассы) " + AGE + ".");
         age = scanner.nextShort();
 
-        System.out.println("Имя: " + NAME + " возраст " + AGE + " место работы: " + placeOfWork + " , кассир.");
+        System.out.println("Имя: " + NAME + " возраст " + AGE + " место работы: " + PLACE_OF_WORK + " , кассир.");
     }
 
     private void reportCashier(Kassa kassaOne) {
