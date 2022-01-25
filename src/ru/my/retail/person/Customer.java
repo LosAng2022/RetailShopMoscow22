@@ -15,7 +15,8 @@ public class Customer extends Person {
     private short age;
     public static final String NAME = "John";
     private int customerMoney;
-        boolean theCustomerNeedsProducts;
+    boolean theCustomerNeedsProducts;
+    private Kefir kefir;
     Scanner scanner = new Scanner(System.in);
 
 
@@ -23,12 +24,12 @@ public class Customer extends Person {
         super();
     }
 
-    public Customer(String name, String genderOfPerson, short age, int customerMoney){
+    public Customer(String name, String genderOfPerson, short age, int customerMoney) {
         super(name, genderOfPerson, age);
-            this.name = name;
-            this.age = age;
-            this.genderOfPerson = genderOfPerson;
-            this.customerMoney = customerMoney;
+        this.name = name;
+        this.age = age;
+        this.genderOfPerson = genderOfPerson;
+        this.customerMoney = customerMoney;
     }
 
     @Override
@@ -95,22 +96,22 @@ public class Customer extends Person {
             System.exit(1000);
 
 
-
-
     }
-// подсчёт денег
+
+    // подсчёт денег
     public void moneyCounting() {
         for (int banknote = 1; banknote <= 3; banknote++)
             System.out.println(banknote + " наличные.");
         System.out.println(" пачка денег ".toUpperCase());
 
     }
-    private void guessShop () {
-    String guess;
+
+    private void guessShop() {
+        String guess;
         do {
-        System.out.print("Угадай название магазина: ");
-        guess = scanner.nextLine();
-    }
+            System.out.print("Угадай название магазина: ");
+            guess = scanner.nextLine();
+        }
         while (!"Billa".equals(guess));
         System.out.println("Поздравляю! Вы угадали название магазина!");
 
@@ -129,6 +130,7 @@ public class Customer extends Person {
         System.out.println(s);
 
     }
+
     public void checkCustomer(Shop shop) {
         System.out.println("Привет покупатель! Идёшь ли ты в магазин? ");
         checkCustomerNeedsProducts(shop);
@@ -141,6 +143,7 @@ public class Customer extends Person {
         enterTheShop(shop);
 
     }
+
     public void takeTheProduct(FoodProduct foodProduct) {
         System.out.print(NAME + " берёт продукт " + foodProduct.getProductName());
 
@@ -159,26 +162,45 @@ public class Customer extends Person {
         foodProduct.infoProduct();
         viewTheContent(dairyProduct);
         dairyProduct.productContent();
-        }
+    }
 
-    public void producInTheBasket(FoodProduct foodProduct) {
+    public void kefirInTheBasket(FoodProduct foodProduct) {
         System.out.println("Покупатель " + NAME + " кладёт продукт в корзину.");
 
-        String [] kefir = new String[4];
+        FoodProduct[] basket = new FoodProduct[4];
 
-        kefir [0] = "Kefir";
-        kefir [1] = "Kefirik";
-        kefir [2] = "Proto Kefir";
-        kefir [3] = "Abstract Kefir";
+        basket[0] = foodProduct;
+        basket[1] = foodProduct;
+        basket[2] = foodProduct;
+        basket[3] = foodProduct;
         for (int i = 0; i < 4; i++) {
-            System.out.println("У " + NAME + " в корзине находится продукт :" + kefir[i] + " и " + NAME + " сверяет его с "
-                    + kefir[2] + " по составу");
+            System.out.println("У " + NAME + " в корзине находится продукт :" + basket[i] + " " + foodProduct.getProductName());
 
 
-            }
         }
+    }
+
+    public void cheeseInTheBasket(FoodProduct foodProduct) {
+        System.out.println("Покупатель " + NAME + " кладёт продукт в корзину.");
+
+        FoodProduct[] basket = new FoodProduct[4];
+
+        basket[0] = foodProduct;
+        basket[1] = foodProduct;
+        basket[2] = foodProduct;
+        basket[3] = foodProduct;
+        int index = 0;
+        do {
+            System.out.println("У " + NAME + " в корзине находится продукт : " + basket[index++]
+                    +  " " + foodProduct.getProductName());
+
+
+        } while (index < basket.length);
 
     }
+
+    }
+
 
 
 

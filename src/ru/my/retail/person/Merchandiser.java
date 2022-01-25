@@ -76,9 +76,9 @@ public class Merchandiser extends Person {
         this.placeOfWork = placeOfWork;
     }
 
-    // расчёт инфляции для нового продукта
+    // расчёт инфляции для продукта
     public void inflation(FoodProduct foodProduct) {
-        System.out.println("Введите цену продукта :");
+        System.out.println("Введите цену продукта (первый кефир, затем сыр) :");
         int x = foodProduct.getProductPrice();
         x = scanner.nextInt();
         int y = 100;
@@ -96,7 +96,7 @@ public class Merchandiser extends Person {
         int day_x = 1;
         int day_y = 30;
         int z = dairyProduct.getShelfLife();
-        System.out.println("Введите количество дней :");
+        System.out.println("Введите количество дней (от 1 до 30 иначе продукт будет просрочен) :");
         z = scanner.nextInt();
         if (z > day_x && z <= day_y) {
             System.out.println("продукт " + dairyProduct.getProductName() + " свежий, всё отлично.");
@@ -109,7 +109,7 @@ public class Merchandiser extends Person {
     public void putProductOnTheShelf(Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo) {
         String s = "Мерчендайзер " + NAME + " выставила продукт " + kefir.getProductName() +
                 " на полке № " + shelfOne.getNumber() + " с новой ценой "
-                + kefir.getProductPrice() + " руб. - \n - " + " и продукт " + kefir.getProductPrice()
+                + kefir.getProductPrice() + " руб. - \n - " + " и продукт " + cheese.getProductName()
                 + " на полке № " + shelfTwo.getNumber() + " с новой ценой " + cheese.getProductPrice() + " руб.";
         System.out.println(s);
     }
@@ -124,7 +124,7 @@ public class Merchandiser extends Person {
                 System.out.print(kef + " ");
 
             }
-            System.out.println(" - " + Kefir.PRODUCT_NAME + " шт.");
+            System.out.println(" - " + kefir.getProductName() + " шт.");
 
         }
         for (int c1 = 1; c1 <= 1; c1++) {
@@ -133,7 +133,7 @@ public class Merchandiser extends Person {
                 System.out.print(che + " ");
 
             }
-            System.out.println(" - " + Cheese.PRODUCT_NAME + " шт.");
+            System.out.println(" - " + cheese.getProductName() + " шт.");
 
         }
     }
@@ -142,8 +142,8 @@ public class Merchandiser extends Person {
         System.out.println("Менчердайзер по имени " + NAME + " собирается посчитать товар на полках. " +
                 "Сколько нужно проверить полок ? любое число : ");
         short shelfNumber = scanner.nextShort();
-        System.out.println("На выбранной полке стоит продукт " + Kefir.PRODUCT_NAME + " и продукт " +
-                Cheese.PRODUCT_NAME + " в количестве : ");
+        System.out.println("На выбранной полке стоит продукт " + kefir.getProductName() + " и продукт " +
+                cheese.getProductName() + " в количестве : ");
         short kefirNumber = scanner.nextShort();
         System.out.println("Варианты проверки товара : ");
         System.out.println("1 - проверить подукт по очереди");
@@ -155,8 +155,8 @@ public class Merchandiser extends Person {
         for (short a1 = 1; a1 <= shelfNumber; a1++) {
             for (int a2 = 1; a2 <= kefirNumber; a2 = a2 + (int) scanOrder) {
                 for (int a3 = 1; a3 <= kefirNumber; a3 = a3 + (int) scanOrder) {
-                    System.out.println("Полка номер " + a1 + " продукт " + Kefir.PRODUCT_NAME + " - " + a2 +
-                            ", продукт " + Cheese.PRODUCT_NAME + " - " + a3);
+                    System.out.println("Полка номер " + a1 + " продукт " + kefir.getProductName() + " - " + a2 +
+                            ", продукт " + cheese.getProductName() + " - " + a3);
 
                 }
             }
@@ -166,6 +166,8 @@ public class Merchandiser extends Person {
     public void checkTheProductBeforeSale(Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo, Merchandiser merchandiser) {
         System.out.println("В магазин поступили продукты и менчендайзер " + Merchandiser.NAME + " всё пересчитала :");
         countTheProductsOnTheShelf(kefir, cheese);
+        System.out.println("Проверила штрих-код и сверила по накладной :");
+        scanBarcodeProduct(kefir);
         System.out.println("Проверяет срок годности продуктов:");
         checkShelfLife(kefir);
         checkShelfLife(cheese);
@@ -176,7 +178,24 @@ public class Merchandiser extends Person {
         putProductOnTheShelf(kefir, cheese, shelfOne, shelfTwo);
 
     }
+
+    public void scanBarcodeProduct(FoodProduct foodProduct) {
+        int[] barcode = {435694, 654781, 328797, 932542, 123456, 244423, 444668};
+        int i = 1;
+        while (i < barcode.length) {
+
+            if (barcode[i] == 123456) {
+                System.out.println("Совпал штрих-код " + foodProduct.getBarCode() +
+                        foodProduct.getProductName() + " позиция в товарной накладной " + i);
+                break;
+            }
+
+            System.out.println("Штрих-код " + barcode[i] + " позиция в товарной накладной " + i);
+            i++;
+        }
+    }
 }
+
 
 
 

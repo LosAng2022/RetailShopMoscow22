@@ -4,18 +4,8 @@ import ru.my.retail.shop.Shelf;
 
 public class Kefir extends DairyProduct {
 
-    public static final String PRODUCT_NAME = "Kefir Kefi";
-    public static final int PRODUCT_PRISE = 80;
-    public static final int BAR_CODE = 123456;
-    public static String DATE_OF_PRODUCTION = "20.12.2021";
-    public static final double CARBO_HYDRATE = 15;
-    public static final double PROTEIN = 10;
-    public static final double CALORIES_CONTENT = 30;
-    public static String SHELF_LIFE = "31.12.2021";
     private String manufacturer;
     private String packing;
-    public static final String MANUFACTURER = "MKK";
-    public static final String PACKING = "Tetra Pack";
 
     public Kefir() {
         super();

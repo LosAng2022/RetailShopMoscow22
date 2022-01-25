@@ -9,6 +9,8 @@ import ru.my.retail.shop.Kassa;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -26,8 +28,10 @@ public class Main {
        System.out.println("Общая сумма в кассах магазина " + Shop.NAME_SHOP + " составляет " + shopMoney + " руб.");
        shop.storeRevenue();
 // продукты
-        Kefir kefir = new Kefir(); kefir.setProductName("Kefir2");
-        Cheese cheese = new Cheese(); cheese.setProductName("Parmezan");
+        Kefir kefir = new Kefir("Kefir ZZZ", 150, 123456, "25/01/2022",
+                15, 10, 25, 25, "MKK","Tetra Pack");
+        Cheese cheese = new Cheese("Parmezan XXX", 650, 456789, "25/01/2022",
+                10, 25, 35, 30, "MKK","Tetra Pack");
  // продуктовые полки
        Shelf shelfOne = shop.getShelfOne();
        Shelf shelfTwo = shop.getShelfTwo();
@@ -39,8 +43,13 @@ public class Main {
         Customer customer = new Customer();
       customer.checkCustomer(shop);
       customer.customerCameTheShelvesAnd(shelfOne, kefir, kefir);
-      customer.producInTheBasket(kefir);
+      customer.kefirInTheBasket(kefir);
+      customer.cheeseInTheBasket(cheese);
 
-        }
     }
+}
+
+
+
+
 

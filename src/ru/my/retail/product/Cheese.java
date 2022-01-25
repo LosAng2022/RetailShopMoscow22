@@ -2,18 +2,8 @@ package ru.my.retail.product;
 
 public class Cheese extends DairyProduct {
 
-    public static final String PRODUCT_NAME = "Parmezan";
-    public static final int PRODUCT_PRISE = 950;
-    public static final int BAR_CODE = 456789;
-    public static final String DATE_OF_PRODUCTION = "20.12.2021";
-    public static final double CARBO_HYDRATE = 10;
-    public static final double PROTEIN = 25;
-    public static final double CALORIES_CONTENT = 50;
-    public static final String SHELF_LIFE = "31.12.2023";
     private String manufacturer;
     private String packing;
-    public static final String MANUFACTURER = "Italiano Parmezano";
-    public static final String PACKING = "Wox";
 
     public Cheese() {
         super();
