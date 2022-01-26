@@ -9,16 +9,13 @@ import ru.my.retail.shop.Shop;
 
 import java.util.Scanner;
 
-public class Customer extends Person {
+public class Customer extends Person implements ToBeHungry{
 
-    private String name, genderOfPerson, address;
-    private short age;
     public static final String NAME = "John";
     private int customerMoney;
     boolean theCustomerNeedsProducts;
     private Kefir kefir;
     Scanner scanner = new Scanner(System.in);
-
 
     public Customer() {
         super();
@@ -26,53 +23,18 @@ public class Customer extends Person {
 
     public Customer(String name, String genderOfPerson, short age, int customerMoney) {
         super(name, genderOfPerson, age);
-        this.name = name;
-        this.age = age;
-        this.genderOfPerson = genderOfPerson;
         this.customerMoney = customerMoney;
-    }
-
-    @Override
-    public void display() {
 
     }
 
     @Override
-    public String getName() {
-        return super.getName();
+    public void helloDeveloper() {
+        System.out.println("Привет крутой разработчик! Я покупатель!");
     }
 
     @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
-
-    @Override
-    public String getGenderOfPerson() {
-        return super.getGenderOfPerson();
-    }
-
-    @Override
-    public void setGenderOfPerson(String genderOfPerson) {
-        super.setGenderOfPerson(genderOfPerson);
-    }
-
-    @Override
-    public short getAge() {
-        return super.getAge();
-    }
-
-    @Override
-    public void setAge(short age) {
-        super.setAge(age);
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    public void weLoveToEat() {
+        System.out.println("Я люблю кушать молочные продукты!");
     }
 
     public int getCustomerMoney() {
@@ -94,7 +56,6 @@ public class Customer extends Person {
 
         } else
             System.exit(1000);
-
 
     }
 
@@ -175,7 +136,6 @@ public class Customer extends Person {
         basket[3] = foodProduct;
         for (int i = 0; i < 4; i++) {
             System.out.println("У " + NAME + " в корзине находится продукт :" + basket[i] + " " + foodProduct.getProductName());
-
 
         }
     }

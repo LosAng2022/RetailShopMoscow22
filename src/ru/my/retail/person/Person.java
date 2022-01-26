@@ -16,10 +16,6 @@ public abstract class Person {
 
     }
 
-    public abstract void display(); {
-
-    }
-
     public String getName() {
         return name;
     }
@@ -42,8 +38,13 @@ public abstract class Person {
 
     public void setAge(short age) {
         if (age > 10 && age < 110)
-        this.age = age;
+            this.age = age;
     }
 
+    public abstract void helloDeveloper();
+
 }
+
+
+
 

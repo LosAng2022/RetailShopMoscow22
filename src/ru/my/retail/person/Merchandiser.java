@@ -8,11 +8,8 @@ import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shelf;
 
-
 public class Merchandiser extends Person {
 
-    private String name, genderOfPerson;
-    private short age;
     public static final String NAME = "Nika";
     private String placeOfWork;
     public static final String PLACE_OF_WORK = "Billa";
@@ -20,52 +17,19 @@ public class Merchandiser extends Person {
     Scanner scanner = new Scanner(System.in);
     DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
-
     public Merchandiser() {
         super();
     }
 
     public Merchandiser(String name, String genderOfPerson, short age, String placeOfWork) {
         super(name, genderOfPerson, age);
-        this.name = name;
-        this.age = age;
-        this.genderOfPerson = genderOfPerson;
         this.placeOfWork = placeOfWork;
-    }
-
-    @Override
-    public void display() {
 
     }
 
     @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
-
-    @Override
-    public String getGenderOfPerson() {
-        return super.getGenderOfPerson();
-    }
-
-    @Override
-    public void setGenderOfPerson(String genderOfPerson) {
-        super.setGenderOfPerson(genderOfPerson);
-    }
-
-    @Override
-    public short getAge() {
-        return super.getAge();
-    }
-
-    @Override
-    public void setAge(short age) {
-        super.setAge(age);
+    public void helloDeveloper() {
+        System.out.println("Привет крутой разработчик! Я работник магазина!");
     }
 
     public String getPlaceOfWork() {

@@ -17,6 +17,9 @@ public class FoodProduct {
         this.barCode = barCode;
         this.dateOfProduction = dateOfProduction;
     }
+    public void productForSaleInRetailShop () { // пример статического полимор.
+        System.out.println("Продукт " + productName + " для продажи.");
+    }
 
     public String getProductName() {
         return productName;

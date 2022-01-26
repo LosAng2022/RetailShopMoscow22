@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 public class Сashier extends Person {
 
-    private String name, genderOfPerson;
-    private short age;
     public static final String NAME = "Alice";
     public static final short AGE = 35;
     private String placeOfWork;
@@ -24,46 +22,13 @@ public class Сashier extends Person {
 
     public Сashier(String name, String genderOfPerson, short age, String placeOfWork) {
         super(name,genderOfPerson,age);
-        this.name = name;
-        this.age = age;
-        this.genderOfPerson = genderOfPerson;
         this.placeOfWork = placeOfWork;
 
     }
 
     @Override
-    public void display() {
-
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
-
-    @Override
-    public String getGenderOfPerson() {
-        return super.getGenderOfPerson();
-    }
-
-    @Override
-    public void setGenderOfPerson(String genderOfPerson) {
-        super.setGenderOfPerson(genderOfPerson);
-    }
-
-    @Override
-    public short getAge() {
-        return super.getAge();
-    }
-
-    @Override
-    public void setAge(short age) {
-        super.setAge(age);
+    public void helloDeveloper() {
+        System.out.println("Привет крутой разработчик! Я кассир!");
     }
 
     public String getPlaceOfWork() {
@@ -77,7 +42,7 @@ public class Сashier extends Person {
     // приветствие кассира
     public void checkCashier() {
         System.out.println("Введите возраст (он же пин для кассы) " + AGE + ".");
-        age = scanner.nextShort();
+        int s = scanner.nextShort();
 
         System.out.println("Имя: " + NAME + " возраст " + AGE + " место работы: " + PLACE_OF_WORK + " , кассир.");
     }
@@ -97,8 +62,6 @@ public class Сashier extends Person {
             x++;
 
         }
-
-
     }
 
     public void checkKassaAndCashier(Kassa kassaOne) {
@@ -109,6 +72,6 @@ public class Сashier extends Person {
         System.out.println("Теперь нужно проверить сумму в кассе");
         reportCashier(kassaOne);
 
-    }
 
+    }
 }
