@@ -1,5 +1,6 @@
 package ru.my.retail.shop;
 
+import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 
 public class Shelf {
@@ -30,5 +31,9 @@ public class Shelf {
     public void setNumber(int number) {
         if(number > 0 && number < 500)
         this.number = number;
+    }
+
+    public void standingOnAShelf(FoodProduct foodProduct) {
+
     }
 }

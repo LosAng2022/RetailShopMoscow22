@@ -85,9 +85,8 @@ public class Customer extends Person implements ToBeHungry{
 
     }
 
-    private void checkCustomerNeedsProducts(Shop shop) {
-        boolean theCustomerNeedsProducts = true;
-        String s = theCustomerNeedsProducts ? "Иду в магазин!" : "Иду в баню!";
+    public void checkCustomerNeedsProducts(Shop shop) {
+        String s = theCustomerNeedsProducts ? "Иду в баню!" : "Иду в магазин!";
         System.out.println(s);
 
     }
@@ -157,6 +156,11 @@ public class Customer extends Person implements ToBeHungry{
 
         } while (index < basket.length);
 
+    }
+    public void customerHello(Shop shop, Customer customer) {
+        customer.helloDeveloper();
+        customer.weLoveToEat();
+        customer.checkCustomer(shop);
     }
 
     }

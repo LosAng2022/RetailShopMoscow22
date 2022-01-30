@@ -48,7 +48,16 @@ public class Cheese extends DairyProduct {
     public void slicedHardCheeseParmesan () {
         System.out.println("Твердый сыр пармезан нарезан слайсами");
     }
+    @Override
+    public void forHealthyDiet() {
+        System.out.println(getProductName() + " для здорового питания");
+    }
 
-}
+    public void cheeseForSail(Cheese cheese) {
+        cheese.productForSaleInRetailShop();
+        cheese.productForSaleInRetailShop(", молочный продукт для настоящих ценителей");
+        cheese.forHealthyDiet();
+
+}}
 
 

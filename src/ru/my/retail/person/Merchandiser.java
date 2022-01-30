@@ -57,7 +57,7 @@ public class Merchandiser extends Person {
 
     // проверка срока годности продукта
     public void checkShelfLife(DairyProduct dairyProduct) {
-        int day_x = 1;
+        int day_x = 0;
         int day_y = 30;
         int z = dairyProduct.getShelfLife();
         System.out.println("Введите количество дней (от 1 до 30 иначе продукт будет просрочен) :");
@@ -128,6 +128,7 @@ public class Merchandiser extends Person {
     }
 
     public void checkTheProductBeforeSale(Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo, Merchandiser merchandiser) {
+        helloDeveloper();
         System.out.println("В магазин поступили продукты и менчендайзер " + Merchandiser.NAME + " всё пересчитала :");
         countTheProductsOnTheShelf(kefir, cheese);
         System.out.println("Проверила штрих-код и сверила по накладной :");

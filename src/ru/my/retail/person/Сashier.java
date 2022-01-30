@@ -65,6 +65,7 @@ public class Сashier extends Person {
     }
 
     public void checkKassaAndCashier(Kassa kassaOne) {
+        helloDeveloper();
         System.out.println(NAME + " приступает к работе на кассе!");
         checkCashier();
         System.out.println("Проверяет работу кассы :");

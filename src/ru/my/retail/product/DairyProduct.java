@@ -56,6 +56,11 @@ public class DairyProduct extends FoodProduct {
         this.shelfLife = shelfLife;
     }
 
+    @Override
+    public void forHealthyDiet() {
+        super.forHealthyDiet();
+    }
+
     public double productContent() { // состав продукта
         System.out.println(" углеводы: " + carboHydrate + ", белок: " + protein +
                 ", калории: " + calorieContent + ", срок годности: " + shelfLife + " дней.");

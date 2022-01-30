@@ -67,4 +67,14 @@ public class Shop {
         return b;
     }
 
+    public void shopProfit(Shop shop) {
+        int shopMoney = shop.getKassaOne().getMoney() + shop.getKassaTwo().getMoney();
+        System.out.println("Общая сумма в кассах магазина " + Shop.NAME_SHOP + " составляет " + shopMoney + " руб.");
+        shop.storeRevenue();
+
+    }
+    public void productShelf(Shop shop) {
+        Shelf shelfOne = shop.getShelfOne();
+        Shelf shelfTwo = shop.getShelfTwo();
+    }
 }

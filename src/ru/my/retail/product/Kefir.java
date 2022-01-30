@@ -53,5 +53,15 @@ public class Kefir extends DairyProduct {
 
     }
 
+    @Override
+    public void forHealthyDiet() {
+        System.out.println(getProductName() + " для здорового питания");
     }
+
+    public void kefirForSail(Kefir kefir) {
+        kefir.productForSaleInRetailShop();
+        kefir.productForSaleInRetailShop(", вкусный молочный продукт!");
+        kefir.forHealthyDiet();
+
+}}
 

@@ -1,6 +1,6 @@
 package ru.my.retail.product;
 
-public class FoodProduct {
+public abstract class FoodProduct implements ProductForHealthyDiet {
 
     private String productName;
     private int productPrice;
@@ -21,6 +21,11 @@ public class FoodProduct {
         System.out.println("Продукт " + productName + " для продажи.");
     }
 
+    @Override
+    public void forHealthyDiet() {
+
+    }
+
     public String getProductName() {
         return productName;
     }
@@ -34,7 +39,7 @@ public class FoodProduct {
     }
 
     public void setProductPrice(int productPrice) {
-        if (productPrice > 10 && productPrice < 10000)
+        if (productPrice > 0 && productPrice < 10000)
            this.productPrice = productPrice;
     }
 
