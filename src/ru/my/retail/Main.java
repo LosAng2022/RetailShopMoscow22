@@ -11,6 +11,9 @@ import ru.my.retail.shop.Kassa;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -39,6 +42,9 @@ public class Main {
         // продуктовые полки
        Shelf shelfOne = shop.getShelfOne();
        Shelf shelfTwo = shop.getShelfTwo();
+       // продукты на полке
+        shelfOne.productOnShelfOne(kefir, cheese, shelfOne);
+        shelfTwo.productOnShelfTwo(kefir, cheese, shelfOne, shelfTwo);
 // Менчейдайзер и его функции
         Merchandiser merchandiser = new Merchandiser();
         merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
@@ -50,9 +56,12 @@ public class Main {
         customer.kefirInTheBasket(kefir);
         customer.cheeseInTheBasket(cheese);
 
+
     }
 
 }
+
+
 
 
 

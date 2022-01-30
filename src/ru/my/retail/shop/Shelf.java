@@ -1,7 +1,12 @@
 package ru.my.retail.shop;
 
+import ru.my.retail.product.Cheese;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Shelf {
 
@@ -33,7 +38,37 @@ public class Shelf {
         this.number = number;
     }
 
-    public void standingOnAShelf(FoodProduct foodProduct) {
-
+    public FoodProduct productOnShelfOne(Kefir kefir, Cheese cheese, Shelf shelfOne) {
+        List<FoodProduct> productsOnAShelf = new ArrayList<>();
+        productsOnAShelf.add(kefir);
+        productsOnAShelf.add(cheese);
+        productsOnAShelf.add(new Kefir());
+        productsOnAShelf.add(new Cheese());
+        System.out.println("На " + shelfOne.getName() + " " + shelfOne.getNumber() + " находятся продукты :" + productsOnAShelf);
+        System.out.println((long) productsOnAShelf.size() + " шт. количество продуктов находится на полке.");
+        productsOnAShelf.remove(kefir);
+        System.out.println("Один продукт упал с полки и теперь на полке находятся : " + productsOnAShelf);
+        System.out.println("Есть ли сыр на полке ?  - " + productsOnAShelf.contains(cheese));
+        System.out.println((long) productsOnAShelf.size() + " шт. - количество продуктов находится на полке.");
+        System.out.println("Породукт на полке под № 3 : " + productsOnAShelf.get(2));
+        productsOnAShelf.add(1, kefir);
+        System.out.println("Упавший продукт положили на полку и теперь продукт на полке под № 3 :" + productsOnAShelf.get(2));
+        return null;
     }
-}
+
+    public void productOnShelfTwo(Kefir kefir, Cheese cheese, Shelf shelfTwo, Shelf shelfOne) {
+        List<FoodProduct> productsOnAShelfTwo = new ArrayList<>();
+        productsOnAShelfTwo.add(kefir);
+        productsOnAShelfTwo.add(kefir);
+        productsOnAShelfTwo.add(new Kefir());
+        productsOnAShelfTwo.add(new Cheese());
+        productsOnAShelfTwo.add(new Cheese());
+        System.out.println("На " + shelfTwo.getName() + " " + shelfTwo.getNumber() + " находятся продукты :" + productsOnAShelfTwo);
+        System.out.println((long) productsOnAShelfTwo.size() + " шт. - количество продуктов находится на полке.");
+        System.out.println("Породукт на полке под № 3 : " + productsOnAShelfTwo.get(2));
+
+        System.out.println("Все продукты на двух полках.");
+        productsOnAShelfTwo.addAll(0, Collections.singleton(productOnShelfOne(kefir, cheese, shelfOne)));
+        System.out.println("Породукт на полке под № 4 : " + productsOnAShelfTwo.get(5));
+
+    }}
