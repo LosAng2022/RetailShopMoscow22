@@ -1,5 +1,12 @@
 package ru.my.retail.shop;
 
+import ru.my.retail.product.Cheese;
+import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
+
+import java.util.Collections;
+import java.util.List;
+
 public class Shop {
 
     private String nameShop;
@@ -77,4 +84,6 @@ public class Shop {
         Shelf shelfOne = shop.getShelfOne();
         Shelf shelfTwo = shop.getShelfTwo();
     }
-}
+
+    }
+

@@ -44,8 +44,9 @@ public class Main {
        Shelf shelfTwo = shop.getShelfTwo();
        // продукты на полке
         shelfOne.productOnShelfOne(kefir, cheese, shelfOne);
-        shelfTwo.productOnShelfTwo(kefir, cheese, shelfOne, shelfTwo);
-// Менчейдайзер и его функции
+        System.out.println("");
+        shelfTwo.productOnShelfTwo(kefir, cheese, shelfTwo, shelfOne);
+        // Менчейдайзер и его функции
         Merchandiser merchandiser = new Merchandiser();
         merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
         merchandiser.checkTheProductOnTheShelf(kefir, cheese);
