@@ -150,7 +150,7 @@ public class Merchandiser extends Person {
         while (i < barcode.length) {
 
             if (barcode[i] == 123456) {
-                System.out.println("Совпал штрих-код " + foodProduct.getBarCode() +
+                System.out.println("Совпал штрих-код " + foodProduct.getBarCode() + " - " +
                         foodProduct.getProductName() + " позиция в товарной накладной " + i);
                 break;
             }

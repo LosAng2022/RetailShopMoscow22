@@ -63,4 +63,9 @@ public abstract class FoodProduct implements ProductForHealthyDiet {
         System.out.println(" с ценой: " + productPrice + " руб, штрих-код: " + barCode
                 + ", дата производства: " + dateOfProduction + ".");
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

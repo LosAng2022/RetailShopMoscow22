@@ -58,6 +58,12 @@ public class Cheese extends DairyProduct {
         cheese.productForSaleInRetailShop(", молочный продукт для настоящих ценителей");
         cheese.forHealthyDiet();
 
-}}
+    }
+
+    @Override
+    public String toString() {
+        return getProductName() + " с ценой " + getProductPrice();
+    }
+}
 
 
