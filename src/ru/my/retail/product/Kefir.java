@@ -4,26 +4,21 @@ import ru.my.retail.shop.Shelf;
 
 public class Kefir extends DairyProduct {
 
-    private String manufacturer;
     private String packing;
 
     public Kefir() {
         super();
     }
 
-    public Kefir(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
-                 double protein, double calorieContent, int shelfLife, String manufacturer, String packing) {
-        super(productName, productPrice, barCode, dateOfProduction, carboHydrate, protein, calorieContent, shelfLife);
-        this.manufacturer = manufacturer;
-        this.packing = packing;
-
-    }
-    public String getManufacturer() {
-        return manufacturer;
+    public Kefir(String productName, int productPrice, int barCode, String manufacturer) {
+        super(productName, productPrice, barCode, manufacturer);
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public Kefir(String productName, int productPrice, int barCode, String dateOfProduction, String manufacturer, double carboHydrate,
+                 double protein, double calorieContent, int shelfLife, String packing) {
+        super(productName, productPrice, barCode, dateOfProduction, manufacturer, carboHydrate, protein, calorieContent, shelfLife);
+               this.packing = packing;
+
     }
 
     public String getPacking() {
@@ -37,8 +32,7 @@ public class Kefir extends DairyProduct {
     @Override
     public void infoProduct() {
         System.out.println(" с ценой: " + getProductPrice() + " руб, штрих-код: " + getBarCode()
-                + ", дата производства: " + getDateOfProduction() + " производитель: " + manufacturer + " упаковка: "
-                + packing);
+                + ", дата производства: " + getDateOfProduction() +  " упаковка: " + packing);
     }
     @Override
     public double productContent() {

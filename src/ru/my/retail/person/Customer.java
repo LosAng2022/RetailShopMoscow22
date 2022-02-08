@@ -9,7 +9,7 @@ import ru.my.retail.shop.Shop;
 
 import java.util.Scanner;
 
-public class Customer extends Person implements ToBeHungry{
+public class Customer extends Person {
 
     public static final String NAME = "John";
     private int customerMoney;
@@ -32,10 +32,6 @@ public class Customer extends Person implements ToBeHungry{
         System.out.println("Привет крутой разработчик! Я покупатель!");
     }
 
-    @Override
-    public void weLoveToEat() {
-        System.out.println("Я люблю кушать молочные продукты!");
-    }
 
     public int getCustomerMoney() {
         return customerMoney;
@@ -159,7 +155,6 @@ public class Customer extends Person implements ToBeHungry{
     }
     public void customerHello(Shop shop, Customer customer) {
         customer.helloDeveloper();
-        customer.weLoveToEat();
         customer.checkCustomer(shop);
     }
 

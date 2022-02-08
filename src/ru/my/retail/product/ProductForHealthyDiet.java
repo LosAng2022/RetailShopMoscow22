@@ -8,7 +8,8 @@ public interface ProductForHealthyDiet {
     default void forEating(FoodProduct foodProduct) {
         System.out.println(foodProduct.getProductName() + " диетически молочный продукт для употребления в пищу.");
 
-    }}
+    }
+}
 
 
 

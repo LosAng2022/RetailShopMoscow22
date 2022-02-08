@@ -1,6 +1,6 @@
 package ru.my.retail.product;
 
-public class DairyProduct extends FoodProduct {
+public abstract class DairyProduct extends FoodProduct {
 
     private double carboHydrate;
     private double protein;
@@ -11,9 +11,13 @@ public class DairyProduct extends FoodProduct {
         super();
     }
 
-    public DairyProduct(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
+    public DairyProduct(String productName, int productPrice, int barCode, String manufacturer) {
+        super(productName, productPrice, barCode, manufacturer);
+    }
+
+    public DairyProduct(String productName, int productPrice, int barCode, String dateOfProduction, String manufacturer, double carboHydrate,
                         double protein, double calorieContent, int shelfLife) {
-        super(productName, productPrice, barCode, dateOfProduction);
+        super(productName, productPrice, barCode, dateOfProduction, manufacturer);
         this.carboHydrate = carboHydrate;
         this.protein = protein;
         this.calorieContent = calorieContent;

@@ -131,7 +131,7 @@ public class Merchandiser extends Person {
         helloDeveloper();
         System.out.println("В магазин поступили продукты и менчендайзер " + Merchandiser.NAME + " всё пересчитала :");
         countTheProductsOnTheShelf(kefir, cheese);
-        System.out.println("Проверила штрих-код и сверила по накладной :");
+        System.out.println("Выборочно проверила штрих-код и сверила по накладной с производителем:");
         scanBarcodeProduct(kefir);
         System.out.println("Проверяет срок годности продуктов:");
         checkShelfLife(kefir);
@@ -151,7 +151,8 @@ public class Merchandiser extends Person {
 
             if (barcode[i] == 123456) {
                 System.out.println("Совпал штрих-код " + foodProduct.getBarCode() + " - " +
-                        foodProduct.getProductName() + " позиция в товарной накладной " + i);
+                        foodProduct.getProductName() + " производитель : " + foodProduct.getManufacturer() +
+                        " позиция в товарной накладной " + i);
                 break;
             }
 

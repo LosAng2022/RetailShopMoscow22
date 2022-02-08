@@ -2,25 +2,20 @@ package ru.my.retail.product;
 
 public class Cheese extends DairyProduct {
 
-    private String manufacturer;
     private String packing;
 
     public Cheese() {
         super();
     }
 
-    public Cheese(String productName, int productPrice, int barCode, String dateOfProduction, double carboHydrate,
-                  double protein, double calorieContent, int shelfLife, String manufacturer, String packing) {
-        super(productName, productPrice, barCode, dateOfProduction, carboHydrate, protein, calorieContent, shelfLife);
-        this.manufacturer = manufacturer;
-        this.packing = packing;
+    public Cheese(String productName, int productPrice, int barCode, String manufacturer) {
+        super(productName, productPrice, barCode, manufacturer);
     }
-    public String getManufacturer() {
-        return manufacturer;
-    }
+    public Cheese(String productName, int productPrice, int barCode, String manufacturer, String dateOfProduction, double carboHydrate,
+                  double protein, double calorieContent, int shelfLife, String packing) {
+        super(productName, productPrice, barCode, dateOfProduction, manufacturer, carboHydrate, protein, calorieContent, shelfLife);
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+        this.packing = packing;
     }
 
     public String getPacking() {
@@ -34,8 +29,7 @@ public class Cheese extends DairyProduct {
     @Override
     public void infoProduct() {
         System.out.println(" с ценой: " + getProductPrice() + " руб, штрих-код: " + getBarCode()
-                + ", дата производства: " + getDateOfProduction() + " производитель: " + manufacturer + " упаковка: "
-                + packing);
+                + ", дата производства: " + getDateOfProduction() + " упаковка: " + packing);
     }
 
     @Override
