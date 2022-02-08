@@ -26,16 +26,16 @@ public class Main {
         Kassa kassaTwo = shop.getKassaTwo();
 // кассир и его функции
         Сashier cashier = new Сashier();
-        //cashier.checkKassaAndCashier(kassaOne);
+        cashier.checkKassaAndCashier(kassaOne);
  // прибыль магазина
-        //shop.shopProfit(shop);
+        shop.shopProfit(shop);
 // продукты
        Kefir kefir = new Kefir("Kefir Rustic", 150, 123456, "MKK");
-       //kefir.kefirForSail(kefir);
-       //kefir.forEating(kefir);
+       kefir.kefirForSail(kefir);
+       kefir.forEating(kefir);
         Cheese cheese = new Cheese("Parmezan", 650, 456789,  "MKK");
-       //cheese.cheeseForSail(cheese);
-       //cheese.forEating(cheese);
+       cheese.cheeseForSail(cheese);
+       cheese.forEating(cheese);
       // продуктовые полки
          Shelf shelfOne = shop.getShelfOne();
          Shelf shelfTwo = shop.getShelfTwo();
@@ -44,14 +44,14 @@ public class Main {
          shelfTwo.productOnShelfTwo(cheese, shelfTwo); //LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>();
          // Менчейдайзер и его функции
          Merchandiser merchandiser = new Merchandiser();
-         //merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
-         //merchandiser.checkTheProductOnTheShelf(kefir, cheese);
+         merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
+         merchandiser.checkTheProductOnTheShelf(kefir, cheese);
 // Покупатель и его функции
          Customer customer = new Customer();
-         //customer.customerHello(shop, customer);
-         //customer.customerCameTheShelvesAnd(shelfOne, kefir, kefir);
-         //customer.kefirInTheBasket(kefir);
-         //customer.cheeseInTheBasket(cheese);
+         customer.customerHello(shop, customer);
+         customer.customerCameTheShelvesAnd(shelfOne, kefir, kefir);
+         customer.kefirInTheBasket(kefir);
+         customer.cheeseInTheBasket(cheese);
 
 
     }
