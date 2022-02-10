@@ -159,6 +159,7 @@ public class Merchandiser extends Person {
             System.out.println("Штрих-код " + barcode[i] + " позиция в товарной накладной " + i);
             i++;
         }
+
     }
 }
 

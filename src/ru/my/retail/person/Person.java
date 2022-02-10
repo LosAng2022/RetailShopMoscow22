@@ -1,5 +1,10 @@
 package ru.my.retail.person;
 
+import ru.my.retail.product.Cheese;
+import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
+import ru.my.retail.shop.Shop;
+
 public abstract class Person {
 
     private String name, genderOfPerson;
@@ -41,7 +46,8 @@ public abstract class Person {
             this.age = age;
     }
 
-    public abstract void helloDeveloper();
+   public abstract void helloDeveloper();
+
 
 }
 

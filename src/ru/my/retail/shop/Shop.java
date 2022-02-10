@@ -17,16 +17,16 @@ public class Shop {
     protected Kassa kassaTwo;
     protected Shelf shelfOne, shelfTwo, shelfThree;
 
-
     public Shop() {
         shelfOne = new Shelf("Полка", 1);
         shelfTwo = new Shelf("Полка", 2);
         shelfThree = new Shelf("Полка", 3);
         kassaOne = new Kassa("Касса № 1", 10000);
         kassaTwo = new Kassa("Касса № 2", 10005);
-
     }
-
+    public Shop(String nameShop) {
+        this.nameShop = nameShop;
+    }
     public String getNameShop() {
         return nameShop;
     }
@@ -85,5 +85,11 @@ public class Shop {
         Shelf shelfTwo = shop.getShelfTwo();
     }
 
+    @Override
+    public String toString() {
+      return getNameShop();
+
     }
+
+}
 

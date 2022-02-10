@@ -68,10 +68,10 @@ public class Shelf {
     public void productOnShelfTwo(Cheese cheese, Shelf shelfTwo) {
         System.out.println();
         LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>();
-        productsOnAShelfTwo.add(new Cheese("Tofu", 450, 478963,  "ITA"));
-        productsOnAShelfTwo.add(new Cheese("Chechil", 780, 634896,  "ITA"));
-        productsOnAShelfTwo.add(new Kefir("Urban", 120, 112456,  "RU"));
-        productsOnAShelfTwo.add(new Kefir("Ladybug", 200, 332654,  "RU"));
+        productsOnAShelfTwo.add(new Cheese("Cheese Tofu", 450, 478963,  "ITA"));
+        productsOnAShelfTwo.add(new Cheese("Cheese Chechil", 780, 634896,  "ITA"));
+        productsOnAShelfTwo.add(new Kefir("Kefir Urban", 120, 112456,  "RU"));
+        productsOnAShelfTwo.add(new Kefir("Kefir Ladybug", 200, 332654,  "RU"));
         System.out.println("На " + shelfTwo.getName() + " " + shelfTwo.getNumber() + " находятся новые продукты :" + productsOnAShelfTwo);
         System.out.println("Первый продукт на полке - " + productsOnAShelfTwo.getFirst());
         System.out.println("Породукт на полке под № 4 (он стоит последним) : " + productsOnAShelfTwo.get(3));

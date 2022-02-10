@@ -96,7 +96,7 @@ public class Customer extends Person {
         moneyCounting();
         System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
         guessShop();
-        enterTheShop(shop);
+
 
     }
 
@@ -111,7 +111,8 @@ public class Customer extends Person {
 
     }
 
-    public void customerCameTheShelvesAnd(Shelf shelfOne, FoodProduct foodProduct, DairyProduct dairyProduct) {
+    public void customerCameTheShelvesAnd(Shelf shelfOne, FoodProduct foodProduct, DairyProduct dairyProduct, Shop shop) {
+        enterTheShop(shop);
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfOne.getNumber() +
                 " молочного отдела :");
         takeTheProduct(dairyProduct);
@@ -120,45 +121,46 @@ public class Customer extends Person {
         dairyProduct.productContent();
     }
 
-    public void kefirInTheBasket(FoodProduct foodProduct) {
-        System.out.println("Покупатель " + NAME + " кладёт продукт в корзину.");
+    public void shoppingList(FoodProduct foodProduct, Cheese cheese, Kefir kefir, Shop shop) {
+         System.out.println("У нашего покупателя по имени " + NAME + " в ежедневнике есть заметка со списком продуктов, " +
+                "которые нужно купить.");
+        FoodProduct[] shoppingList = new FoodProduct[6];
+        shoppingList[0] = cheese;
+        shoppingList[1] = kefir;
+        shoppingList[2] = new Cheese("Cheese Tofu", 450, 478963, "ITA");
+        shoppingList[3] = new Kefir("Kefir Urban", 120, 112456, "RU");
+        shoppingList[4] = new Cheese("Cheese Chechil", 780, 634896, "ITA");
+        shoppingList[5] = new Kefir("Kefir Ladybug", 200, 332654, "RU");
 
-        FoodProduct[] basket = new FoodProduct[4];
-
-        basket[0] = foodProduct;
-        basket[1] = foodProduct;
-        basket[2] = foodProduct;
-        basket[3] = foodProduct;
-        for (int i = 0; i < 4; i++) {
-            System.out.println("У " + NAME + " в корзине находится продукт :" + basket[i] + " " + foodProduct.getProductName());
+        for (int i = 0; i < 6; i++) {
+            System.out.println("У " + NAME + " в списке покупок находится : " + shoppingList[i] + " " + foodProduct.getProductName());
 
         }
-    }
-
-    public void cheeseInTheBasket(FoodProduct foodProduct) {
-        System.out.println("Покупатель " + NAME + " кладёт продукт в корзину.");
-
-        FoodProduct[] basket = new FoodProduct[4];
-
-        basket[0] = foodProduct;
-        basket[1] = foodProduct;
-        basket[2] = foodProduct;
-        basket[3] = foodProduct;
+        System.out.println();
+        System.out.println("А также в ежедневнике имеется запись со списком магазинов где можно купить продукты, " +
+                "но желательно выбрать один!");
+        Shop[] storelist = new Shop[4];
+        storelist[0] = new Shop("Billa");
+        storelist[1] = new Shop("Шестёрочка");
+        storelist[2] = new Shop("Ащяс");
+        storelist[3] = new Shop("НеВерный");
         int index = 0;
         do {
-            System.out.println("У " + NAME + " в корзине находится продукт : " + basket[index++]
-                    +  " " + foodProduct.getProductName());
+            System.out.println("Магазин : " + storelist[index++]);
 
+        } while (index < storelist.length);
 
-        } while (index < basket.length);
+        System.out.println(NAME + " пойдёт в магазин " + storelist[0]);
 
     }
+
+
     public void customerHello(Shop shop, Customer customer) {
         customer.helloDeveloper();
         customer.checkCustomer(shop);
     }
 
-    }
+}
 
 
 

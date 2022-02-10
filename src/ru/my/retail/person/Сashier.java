@@ -1,6 +1,8 @@
 package ru.my.retail.person;
 
-import ru.my.retail.product.DairyProduct;
+import ru.my.retail.product.Cheese;
+import ru.my.retail.product.FoodProduct;
+import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Kassa;
 import ru.my.retail.shop.Shop;
 
@@ -31,6 +33,7 @@ public class Сashier extends Person {
         System.out.println("Привет крутой разработчик! Я кассир!");
     }
 
+
     public String getPlaceOfWork() {
         return placeOfWork;
     }
@@ -51,10 +54,9 @@ public class Сashier extends Person {
         int m = kassaOne.getMoney();
         String s = m > 10000 ? "<Большая сумма, положить часть денег в сейф." : "Есть сумма в кассе необходимая для работы.";
         System.out.println(s.toUpperCase());
-
     }
 
-    private void testKassa() {  // проверка правильности работы кассы
+    void testKassa() {  // проверка правильности работы кассы
         System.out.println("Проверка систем кассы");
         int x = 1;
         while (x <= 7) {
@@ -72,7 +74,6 @@ public class Сashier extends Person {
         testKassa();
         System.out.println("Теперь нужно проверить сумму в кассе");
         reportCashier(kassaOne);
-
 
     }
 }
