@@ -1,6 +1,9 @@
 package ru.my.retail.product;
 
 import ru.my.retail.shop.Shelf;
+import ru.my.retail.shop.Shop;
+
+import java.util.Random;
 
 public class Kefir extends DairyProduct {
 
@@ -63,6 +66,8 @@ public class Kefir extends DairyProduct {
     public String toString() {
         return  getProductName() + " с ценой " + getProductPrice();
     }
-}
 
+
+
+}
 

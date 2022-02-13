@@ -7,9 +7,9 @@ import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 
-import java.util.Scanner;
+import java.util.*;
 
-public class Customer extends Person {
+public class Customer extends Person implements EntryInTheDiary {
 
     public static final String NAME = "John";
     private int customerMoney;
@@ -86,42 +86,8 @@ public class Customer extends Person {
         System.out.println(s);
 
     }
-
-    public void checkCustomer(Shop shop) {
-        System.out.println("Привет покупатель! Идёшь ли ты в магазин? ");
-        checkCustomerNeedsProducts(shop);
-        System.out.println("Есть ли у покупателя денеги?");
-        checkCustomerMoney();
-        System.out.println(NAME + " решил пересчитать свои деньги");
-        moneyCounting();
-        System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
-        guessShop();
-
-
-    }
-
-    public void takeTheProduct(FoodProduct foodProduct) {
-        System.out.print(NAME + " берёт продукт " + foodProduct.getProductName());
-
-    }
-
-    public void viewTheContent(DairyProduct dairyProduct) {
-        System.out.print(NAME + " смотрит состав продукта " + dairyProduct.getProductName());
-
-
-    }
-
-    public void customerCameTheShelvesAnd(Shelf shelfOne, FoodProduct foodProduct, DairyProduct dairyProduct, Shop shop) {
-        enterTheShop(shop);
-        System.out.println(NAME + " подходит к продуктовой полке № " + shelfOne.getNumber() +
-                " молочного отдела :");
-        takeTheProduct(dairyProduct);
-        foodProduct.infoProduct();
-        viewTheContent(dairyProduct);
-        dairyProduct.productContent();
-    }
-
-    public void shoppingList(FoodProduct foodProduct, Cheese cheese, Kefir kefir, Shop shop) {
+    @Override
+    public void toDoList(FoodProduct foodProduct, Kefir kefir, Cheese cheese) {
          System.out.println("У нашего покупателя по имени " + NAME + " в ежедневнике есть заметка со списком продуктов, " +
                 "которые нужно купить.");
         FoodProduct[] shoppingList = new FoodProduct[6];
@@ -154,13 +120,80 @@ public class Customer extends Person {
 
     }
 
+    public void checkCustomer(Shop shop, FoodProduct foodProduct, Kefir kefir, Cheese cheese) {
+        helloDeveloper();
+        System.out.println("Привет покупатель! Идёшь ли ты в магазин? ");
+        checkCustomerNeedsProducts(shop);
+        System.out.println("Есть ли у покупателя денеги?");
+        checkCustomerMoney();
+        System.out.println(NAME + " решил пересчитать свои деньги");
+        moneyCounting();
+        System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
+        guessShop();
+        toDoList(foodProduct, kefir, cheese);
 
-    public void customerHello(Shop shop, Customer customer) {
-        customer.helloDeveloper();
-        customer.checkCustomer(shop);
     }
 
+    public void lookingForProductsOnAShelfOne(Shelf shelfOne, FoodProduct foodProduct, Shop shop) {
+        enterTheShop(shop);
+        System.out.println(NAME + " подходит к продуктовой полке № " + shelfOne.getNumber() +
+                " молочного отдела и начинает искать интересующие его продукты.");
+        System.out.println("На продуктовой полке " + shelfOne.getNumber() + " находятся следующие продукты :");
+        List<FoodProduct> shelf1 = new LinkedList<>();
+        for (int i = 0; i < 5; i++) {
+            shelf1.add(foodProduct);
+            shelf1.add(new Kefir("Kefir Urban", 120, 112456, "RU"));
+        }
+        for (FoodProduct foodProduct1 : shelf1) {
+
+            System.out.println(foodProduct1 + " руб.");
+        }
+        System.out.println("Всего " + shelf1.size() + " шт.");
+        System.out.println(NAME + " взял с полки 3 шт. " + foodProduct + " руб. которые стоят под номером : " );
+
+        for (int i = 0; i < 8; i++) {
+
+            if ((i % 2) == 0 && i != 0)
+
+                System.out.println(i + " - " + foodProduct + " руб.");
+        }
+        shelf1.remove(2);
+        shelf1.remove(4);
+        shelf1.remove(6);
+
+        for (FoodProduct foodProduct1 : shelf1) {
+
+            System.out.println(foodProduct1 + " руб.");
+        }
+        System.out.println("Осталось " + shelf1.size() + " шт.");
+
+    }
+
+    public void lookingForProductsOnAShelfTwo(Shelf shelfTwo, Cheese cheese) {
+        System.out.println(NAME + " подходит к продуктовой полке № " + shelfTwo.getNumber() +
+                " молочного отдела и начинает искать интересующие его продукты.");
+       Map<Cheese, Integer> map1 = new HashMap<>();
+       map1.put(cheese,cheese.getProductPrice());
+       Cheese cheese1 = new Cheese("Cheese Tofu", 450, 478963, "ITA");
+       Cheese cheese2 = new Cheese("Cheese Chechil", 780, 632145, "ITA");
+       Cheese cheese3 = new Cheese("Ricotta", 950, 456987, "ITA");
+           map1.put(cheese, cheese.getProductPrice());
+           map1.put(cheese1, cheese1.getProductPrice());
+           map1.put(cheese2, cheese2.getProductPrice());
+           map1.put(cheese3, cheese3.getProductPrice());
+
+
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 

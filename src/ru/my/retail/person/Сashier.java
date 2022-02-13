@@ -8,7 +8,7 @@ import ru.my.retail.shop.Shop;
 
 import java.util.Scanner;
 
-public class Сashier extends Person {
+public class Сashier extends Person  {
 
     public static final String NAME = "Alice";
     public static final short AGE = 35;

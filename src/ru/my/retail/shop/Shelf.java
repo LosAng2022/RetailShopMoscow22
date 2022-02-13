@@ -5,15 +5,13 @@ import ru.my.retail.product.Cheese;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Shelf {
 
     private String name;
     private int number;
+    private LinkedList<Object> products;
 
 
     public Shelf(String name, int number) {
@@ -68,10 +66,10 @@ public class Shelf {
     public void productOnShelfTwo(Cheese cheese, Shelf shelfTwo) {
         System.out.println();
         LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>();
-        productsOnAShelfTwo.add(new Cheese("Cheese Tofu", 450, 478963,  "ITA"));
-        productsOnAShelfTwo.add(new Cheese("Cheese Chechil", 780, 634896,  "ITA"));
-        productsOnAShelfTwo.add(new Kefir("Kefir Urban", 120, 112456,  "RU"));
-        productsOnAShelfTwo.add(new Kefir("Kefir Ladybug", 200, 332654,  "RU"));
+        productsOnAShelfTwo.add(new Cheese("Cheese Tofu", 450, 478963, "ITA"));
+        productsOnAShelfTwo.add(new Cheese("Cheese Chechil", 780, 634896, "ITA"));
+        productsOnAShelfTwo.add(new Kefir("Kefir Urban", 120, 112456, "RU"));
+        productsOnAShelfTwo.add(new Kefir("Kefir Ladybug", 200, 332654, "RU"));
         System.out.println("На " + shelfTwo.getName() + " " + shelfTwo.getNumber() + " находятся новые продукты :" + productsOnAShelfTwo);
         System.out.println("Первый продукт на полке - " + productsOnAShelfTwo.getFirst());
         System.out.println("Породукт на полке под № 4 (он стоит последним) : " + productsOnAShelfTwo.get(3));
@@ -84,7 +82,6 @@ public class Shelf {
             System.out.println(foodProduct);
 
         }
-
     }
-}
 
+}
