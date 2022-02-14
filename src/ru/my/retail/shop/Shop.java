@@ -6,6 +6,7 @@ import ru.my.retail.product.Kefir;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Shop {
 
@@ -16,6 +17,10 @@ public class Shop {
     protected Kassa kassaOne;
     protected Kassa kassaTwo;
     protected Shelf shelfOne, shelfTwo, shelfThree;
+
+    private FoodProduct[] foodProducts = new FoodProduct[10];
+    private int productIndex;
+    private int regenArrayIndex;
 
     public Shop() {
         shelfOne = new Shelf("Полка", 1);
@@ -88,6 +93,52 @@ public class Shop {
     @Override
     public String toString() {
       return getNameShop();
+
+    }
+    public FoodProduct[] FoodProducts() {
+        return foodProducts;
+    }
+
+    public Object[] getFoodProduct() {
+        return foodProducts;
+    }
+
+    public void addFoodProduct(FoodProduct foodProduct) {
+        if (regenArrayIndex >= 10) {
+            FoodProduct[] foodProducts1 = new FoodProduct[foodProducts.length + 10];
+            System.arraycopy(foodProducts, 0, foodProducts1, 0, foodProducts.length);
+            foodProducts = foodProducts1;
+            regenArrayIndex = 0;
+        }
+
+        foodProducts[productIndex++] = foodProduct;
+        regenArrayIndex++;
+    }
+
+    public void newProductsCounter() {
+        for (int i = 0; i < 50; i++) {
+            addFoodProduct(selectAnyProduct());
+        }
+
+        for (int i = 0; i < getFoodProduct().length; i++)
+            System.out.println("Молочный продукт : " + getFoodProduct()[i] + " руб.");
+    }
+
+    private static FoodProduct selectAnyProduct() {
+        Random r = new Random();
+        int i = r.nextInt(50);
+        if (i % 2 == 0) {
+            return new Kefir("Kefir Urban", 120, 112456, "RU");
+
+        }
+
+        return new Cheese("Cheese Chechil", 780, 634896, "ITA");
+
+    }
+
+    public void newProductsInShop() {
+        System.out.println("Магазин " + NAME_SHOP + " получил свежие продукты для продажи : ");
+        newProductsCounter();
 
     }
 

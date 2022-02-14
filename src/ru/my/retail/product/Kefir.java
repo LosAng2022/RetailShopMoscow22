@@ -67,7 +67,11 @@ public class Kefir extends DairyProduct {
         return  getProductName() + " с ценой " + getProductPrice();
     }
 
+    @Override
+    public int hashCode() {
+        Random r = new Random();
+        return r.nextInt();
 
-
+    }
 }
 

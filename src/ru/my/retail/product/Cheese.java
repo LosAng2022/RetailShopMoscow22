@@ -1,5 +1,7 @@
 package ru.my.retail.product;
 
+import java.util.Random;
+
 public class Cheese extends DairyProduct {
 
     private String packing;
@@ -57,6 +59,12 @@ public class Cheese extends DairyProduct {
     @Override
     public String toString() {
         return getProductName() + " с ценой " + getProductPrice();
+    }
+
+    @Override
+    public int hashCode() {
+        Random r = new Random();
+        return r.nextInt();
     }
 }
 
