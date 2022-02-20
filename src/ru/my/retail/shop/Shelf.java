@@ -4,14 +4,16 @@ import ru.my.retail.person.Merchandiser;
 import ru.my.retail.product.Cheese;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
+import ru.my.retail.product.ProductForHealthyDiet;
 
 import java.util.*;
 
-public class Shelf {
+public class Shelf implements ProductForHealthyDiet {
 
     private String name;
     private int number;
     private LinkedList<Object> products;
+    private Collection<FoodProduct> foodProducts = new HashSet<>();
 
 
     public Shelf(String name, int number) {
@@ -82,6 +84,11 @@ public class Shelf {
             System.out.println(foodProduct);
 
         }
+    }
+
+    @Override
+    public void forHealthyDiet() {
+
     }
 
 }

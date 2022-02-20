@@ -58,13 +58,7 @@ public class Cheese extends DairyProduct {
 
     @Override
     public String toString() {
-        return getProductName() + " с ценой " + getProductPrice();
-    }
-
-    @Override
-    public int hashCode() {
-        Random r = new Random();
-        return r.nextInt();
+        return super.toString();
     }
 }
 

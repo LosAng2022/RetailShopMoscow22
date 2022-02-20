@@ -4,9 +4,7 @@ import ru.my.retail.product.Cheese;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Shop {
 
@@ -29,9 +27,11 @@ public class Shop {
         kassaOne = new Kassa("Касса № 1", 10000);
         kassaTwo = new Kassa("Касса № 2", 10005);
     }
+
     public Shop(String nameShop) {
         this.nameShop = nameShop;
     }
+
     public String getNameShop() {
         return nameShop;
     }
@@ -85,6 +85,7 @@ public class Shop {
         shop.storeRevenue();
 
     }
+
     public void productShelf(Shop shop) {
         Shelf shelfOne = shop.getShelfOne();
         Shelf shelfTwo = shop.getShelfTwo();
@@ -92,9 +93,10 @@ public class Shop {
 
     @Override
     public String toString() {
-      return getNameShop();
+        return getNameShop();
 
     }
+
     public FoodProduct[] FoodProducts() {
         return foodProducts;
     }
@@ -142,5 +144,11 @@ public class Shop {
 
     }
 
-}
+
+
+    }
+
+
+
+
 

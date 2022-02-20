@@ -30,8 +30,8 @@ public class Main {
                  10.5, 7.2, 15.0, 25, "Tetra Pack");
          kefir.kefirForSail(kefir);
          kefir.forEating(kefir);
-         Cheese cheese = new Cheese("Parmezan", 650, 147258, "11/02/2022",
-                 "ITA", 10.5, 20.2, 40.0, 30, "Wox");
+         Cheese cheese = new Cheese("Parmezan", 650, 147258, "ITA",
+                 "11/02/2022", 10.5, 20.2, 40.0, 30, "Wox");
          cheese.cheeseForSail(cheese);
          cheese.forEating(cheese);
 // продуктовые полки
@@ -50,17 +50,9 @@ public class Main {
          customer.lookingForProductsOnAShelfOne(shelfOne, kefir, shop);
          customer.lookingForProductsOnAShelfTwo(shelfTwo, cheese);
 
-     }
+    }
 
 }
-
-
-
-
-
-
-
-
 
 
 

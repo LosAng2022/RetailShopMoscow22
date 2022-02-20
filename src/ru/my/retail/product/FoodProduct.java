@@ -86,7 +86,7 @@ public abstract class FoodProduct implements ProductForHealthyDiet {
 
     @Override
     public String toString() {
-        return getProductName() + " с ценой " + getProductPrice();
+        return getProductName() + " с ценой " + getProductPrice() + " руб., штрих-код: " + getBarCode() + ", производитель: " + getManufacturer() + ".";
 
     }
 
@@ -100,6 +100,7 @@ public abstract class FoodProduct implements ProductForHealthyDiet {
 
     @Override
     public int hashCode() {
-        return Objects.hash(productName);
+        return Objects.hash(productName, productPrice, barCode);
     }
+
 }

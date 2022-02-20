@@ -173,18 +173,29 @@ public class Customer extends Person implements EntryInTheDiary {
     public void lookingForProductsOnAShelfTwo(Shelf shelfTwo, Cheese cheese) {
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfTwo.getNumber() +
                 " молочного отдела и начинает искать интересующие его продукты.");
-        Map<Cheese, Integer> map1 = new HashMap<>();
-        map1.put(cheese, cheese.getProductPrice());
-        Cheese cheese1 = new Cheese("Cheese Tofu", 450, 478963, "ITA");
-        Cheese cheese2 = new Cheese("Cheese Chechil", 780, 632145, "ITA");
-        Cheese cheese3 = new Cheese("Ricotta", 950, 456987, "ITA");
-        map1.put(cheese, cheese.getProductPrice());
-        map1.put(cheese1, cheese1.getProductPrice());
-        map1.put(cheese2, cheese2.getProductPrice());
-        map1.put(cheese3, cheese3.getProductPrice());
+        Map<String, FoodProduct> shelf2 = new HashMap<>();
+        shelf2.put("№ 1 - Кефир", new Kefir("Kefir Rustic", 150, 123456, "MKK"));
+        shelf2.put("№ 2 - Сыр", new Cheese("Parmezan", 650, 147258, "ITA"));
+        shelf2.put("№ 3 - Сыр", new Cheese("Cheese Tofu", 450, 478963, "ITA"));
+        shelf2.put("№ 4 - Кефир", new Kefir("Kefir Urban", 120, 112456, "RU"));
+        shelf2.put("№ 5 - Сыр", new Cheese("Cheese Chechil", 780, 632145, "ITA"));
+        shelf2.put("№ 6 - Кефир", new Kefir("Kefir Ladybug", 200, 332654, "RU"));
+        shelf2.put("№ 7 - Сыр", new Cheese("Ricotta", 950, 456987, "ITA"));
+        System.out.println("На полке стоят продукты :");
+        for (Map.Entry<String, FoodProduct> entry : shelf2.entrySet()) {
+            String key = entry.getKey();
+            String value = String.valueOf(entry.getValue());
+            System.out.print(key + ": ");
+            System.out.println(value);
 
+        }
+
+        List<FoodProduct> list = new ArrayList<>(shelf2.values());
+        System.out.println(NAME + " берёт интересующие его продукты :");
+        System.out.println(list.get(1));
+        System.out.println(list.get(3));
+        System.out.println(list.get(5));
     }
-
 }
 
 
