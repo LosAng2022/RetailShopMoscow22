@@ -3,12 +3,15 @@ import ru.my.retail.person.Customer;
 import ru.my.retail.person.Merchandiser;
 import ru.my.retail.person.Сashier;
 import ru.my.retail.product.Cheese;
+import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Kassa;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
 import java.util.*;
+
+import static ru.my.retail.product.DairyProduct.dairyProducts;
 
 public class Main {
 
@@ -28,8 +31,8 @@ public class Main {
 // продукты
          Kefir kefir = new Kefir("Kefir Rustic", 150, 123456, "11/02/2022", "MKK",
                  10.5, 7.2, 15.0, 25, "Tetra Pack");
-         kefir.kefirForSail(kefir);
-         kefir.forEating(kefir);
+        kefir.kefirForSail(kefir);
+        kefir.forEating(kefir);
          Cheese cheese = new Cheese("Parmezan", 650, 147258, "ITA",
                  "11/02/2022", 10.5, 20.2, 40.0, 30, "Wox");
          cheese.cheeseForSail(cheese);
@@ -39,7 +42,7 @@ public class Main {
          Shelf shelfTwo = shop.getShelfTwo();
 // продукты на полке
          shelfOne.productOnShelfOne(kefir, cheese, shelfOne);
-         shelfTwo.productOnShelfTwo(cheese, shelfTwo);
+         shelfTwo.productOnShelfTwo(cheese, kefir, shelfTwo);
 // Менчейдайзер и его функции
          Merchandiser merchandiser = new Merchandiser();
          merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
@@ -50,9 +53,18 @@ public class Main {
          customer.lookingForProductsOnAShelfOne(shelfOne, kefir, shop);
          customer.lookingForProductsOnAShelfTwo(shelfTwo, cheese);
 
-    }
 
-}
+         }
+
+
+     }
+
+
+
+
+
+
+
 
 
 

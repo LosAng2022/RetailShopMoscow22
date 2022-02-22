@@ -100,6 +100,7 @@ public class Customer extends Person implements EntryInTheDiary {
         shoppingList[5] = new Kefir("Kefir Ladybug", 200, 332654, "RU");
 
         for (int i = 0; i < 6; i++) {
+
             System.out.println("У " + NAME + " в списке покупок находится : " + shoppingList[i] + " " + foodProduct.getProductName());
 
         }
@@ -170,7 +171,7 @@ public class Customer extends Person implements EntryInTheDiary {
 
     }
 
-    public void lookingForProductsOnAShelfTwo(Shelf shelfTwo, Cheese cheese) {
+    public void lookingForProductsOnAShelfTwo(Shelf shelfTwo, FoodProduct foodProduct) {
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfTwo.getNumber() +
                 " молочного отдела и начинает искать интересующие его продукты.");
         Map<String, FoodProduct> shelf2 = new HashMap<>();
@@ -191,12 +192,19 @@ public class Customer extends Person implements EntryInTheDiary {
         }
 
         List<FoodProduct> list = new ArrayList<>(shelf2.values());
-        System.out.println(NAME + " берёт интересующие его продукты :");
-        System.out.println(list.get(1));
-        System.out.println(list.get(3));
-        System.out.println(list.get(5));
+        for (int i = 0; i < 7; i++) {
+           // if (i == )) {
+                System.out.println();
+            }
+
+
+          //  System.out.println(NAME + " берёт интересующие его продукты :");
+        }
+
+       // System.out.println(list.get(3));
+       // System.out.println(list.get(5));
     }
-}
+
 
 
 

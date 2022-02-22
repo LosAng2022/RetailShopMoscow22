@@ -70,4 +70,21 @@ public abstract class DairyProduct extends FoodProduct {
                 ", калории: " + calorieContent + ", срок годности: " + shelfLife + " дней.");
         return carboHydrate + protein + calorieContent;
     }
+
+    public static FoodProduct[] dairyProducts(Kefir kefir, Cheese cheese) {
+        FoodProduct[] dairyProduct = new FoodProduct[9];
+        dairyProduct[0] = cheese;
+        dairyProduct[1] = kefir;
+        dairyProduct[2] = new Cheese("Cheese Tofu", 450, 478963, "ITA");
+        dairyProduct[3] = new Kefir("Kefir Urban", 120, 112456, "RU");
+        dairyProduct[4] = new Cheese("Cheese Chechil", 780, 634896, "ITA");
+        dairyProduct[5] = new Kefir("Kefir Ladybug", 200, 332654, "RU");
+        dairyProduct[6] = new Kefir("Kefir Rustic", 150, 123456, "MKK");
+        dairyProduct[7] = new Cheese("Parmigiano Reggiano", 650, 147258, "ITA");
+        dairyProduct[8] = new Cheese("Ricotta", 950, 456987, "ITA");
+
+        return dairyProduct;
+    }
+
+
 }

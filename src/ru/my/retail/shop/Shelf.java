@@ -8,6 +8,8 @@ import ru.my.retail.product.ProductForHealthyDiet;
 
 import java.util.*;
 
+import static ru.my.retail.product.DairyProduct.dairyProducts;
+
 public class Shelf implements ProductForHealthyDiet {
 
     private String name;
@@ -41,11 +43,7 @@ public class Shelf implements ProductForHealthyDiet {
     }
 
     public void productOnShelfOne(Kefir kefir, Cheese cheese, Shelf shelfOne) {
-        List<FoodProduct> productsOnAShelf = new ArrayList<>();
-        productsOnAShelf.add(kefir);
-        productsOnAShelf.add(cheese);
-        productsOnAShelf.add(kefir);
-        productsOnAShelf.add(cheese);
+        List<FoodProduct> productsOnAShelf = new ArrayList<>(List.of(dairyProducts(kefir, cheese)));
         System.out.println("На " + shelfOne.getName() + " " + shelfOne.getNumber() + " находятся продукты :" + productsOnAShelf);
         System.out.println((long) productsOnAShelf.size() + " шт. количество продуктов находится на полке.");
         productsOnAShelf.remove(kefir);
@@ -59,19 +57,15 @@ public class Shelf implements ProductForHealthyDiet {
         productsOnAShelf.add(1, kefir);
         System.out.println("Упавший продукт положили на полку и теперь продукт на полке под № 3 :" + productsOnAShelf.get(2));
         System.out.println("Все продукты на полке: ");
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 9; i++) {
             System.out.println(productsOnAShelf.get(i));
 
         }
     }
 
-    public void productOnShelfTwo(Cheese cheese, Shelf shelfTwo) {
+    public void productOnShelfTwo(Cheese cheese, Kefir kefir, Shelf shelfTwo) {
         System.out.println();
-        LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>();
-        productsOnAShelfTwo.add(new Cheese("Cheese Tofu", 450, 478963, "ITA"));
-        productsOnAShelfTwo.add(new Cheese("Cheese Chechil", 780, 634896, "ITA"));
-        productsOnAShelfTwo.add(new Kefir("Kefir Urban", 120, 112456, "RU"));
-        productsOnAShelfTwo.add(new Kefir("Kefir Ladybug", 200, 332654, "RU"));
+        LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>(List.of(dairyProducts(kefir, cheese)));
         System.out.println("На " + shelfTwo.getName() + " " + shelfTwo.getNumber() + " находятся новые продукты :" + productsOnAShelfTwo);
         System.out.println("Первый продукт на полке - " + productsOnAShelfTwo.getFirst());
         System.out.println("Породукт на полке под № 4 (он стоит последним) : " + productsOnAShelfTwo.get(3));
