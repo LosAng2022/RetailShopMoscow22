@@ -71,10 +71,10 @@ public abstract class DairyProduct extends FoodProduct {
         return carboHydrate + protein + calorieContent;
     }
 
-    public static FoodProduct[] dairyProducts(Kefir kefir, Cheese cheese) {
+    public static FoodProduct[] dairyProducts() {
         FoodProduct[] dairyProduct = new FoodProduct[9];
-        dairyProduct[0] = cheese;
-        dairyProduct[1] = kefir;
+        dairyProduct[0] = new Cheese("Parmezan", 560, 456321, "ITA");
+        dairyProduct[1] = new Kefir("Kefir Rustic", 130, 785236, "MKK");
         dairyProduct[2] = new Cheese("Cheese Tofu", 450, 478963, "ITA");
         dairyProduct[3] = new Kefir("Kefir Urban", 120, 112456, "RU");
         dairyProduct[4] = new Cheese("Cheese Chechil", 780, 634896, "ITA");

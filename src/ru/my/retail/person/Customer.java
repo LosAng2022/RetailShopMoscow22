@@ -1,7 +1,6 @@
 package ru.my.retail.person;
 
 import ru.my.retail.product.Cheese;
-import ru.my.retail.product.DairyProduct;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shelf;
@@ -9,12 +8,15 @@ import ru.my.retail.shop.Shop;
 
 import java.util.*;
 
+import static ru.my.retail.product.DairyProduct.dairyProducts;
+
 public class Customer extends Person implements EntryInTheDiary {
 
     public static final String NAME = "John";
     private int customerMoney;
     boolean theCustomerNeedsProducts;
     private Kefir kefir;
+    private int regenArrayIndex;
     Scanner scanner = new Scanner(System.in);
 
     public Customer() {
@@ -88,20 +90,15 @@ public class Customer extends Person implements EntryInTheDiary {
     }
 
     @Override
-    public void toDoList(FoodProduct foodProduct, Kefir kefir, Cheese cheese) {
+    public void toDoList() {
         System.out.println("У нашего покупателя по имени " + NAME + " в ежедневнике есть заметка со списком продуктов, " +
                 "которые нужно купить.");
-        FoodProduct[] shoppingList = new FoodProduct[6];
-        shoppingList[0] = cheese;
-        shoppingList[1] = kefir;
-        shoppingList[2] = new Cheese("Cheese Tofu", 450, 478963, "ITA");
-        shoppingList[3] = new Kefir("Kefir Urban", 120, 112456, "RU");
-        shoppingList[4] = new Cheese("Cheese Chechil", 780, 634896, "ITA");
-        shoppingList[5] = new Kefir("Kefir Ladybug", 200, 332654, "RU");
 
-        for (int i = 0; i < 6; i++) {
+        FoodProduct[] shoppingList;                     // = new FoodProduct[dairyProducts(kefir, cheese).length];
+        shoppingList = dairyProducts();
 
-            System.out.println("У " + NAME + " в списке покупок находится : " + shoppingList[i] + " " + foodProduct.getProductName());
+        for (int i = 0; i < 9; i++) {
+            System.out.println("У " + NAME + " в списке покупок находится : " + shoppingList[i]);
 
         }
         System.out.println();
@@ -132,56 +129,51 @@ public class Customer extends Person implements EntryInTheDiary {
         moneyCounting();
         System.out.println("Угадаете ли вы в какой магазин пойдёт покупатель?");
         guessShop();
-        toDoList(foodProduct, kefir, cheese);
+        toDoList();
 
     }
 
-    public void lookingForProductsOnAShelfOne(Shelf shelfOne, FoodProduct foodProduct, Shop shop) {
+    public List<FoodProduct> lookingForProductsOnAShelfOne(Shelf shelfOne, Shop shop) {
         enterTheShop(shop);
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfOne.getNumber() +
                 " молочного отдела и начинает искать интересующие его продукты.");
         System.out.println("На продуктовой полке " + shelfOne.getNumber() + " находятся следующие продукты :");
-        List<FoodProduct> shelf1 = new LinkedList<>();
-        for (int i = 0; i < 5; i++) {
-            shelf1.add(foodProduct);
-            shelf1.add(new Kefir("Kefir Urban", 120, 112456, "RU"));
-        }
-        for (FoodProduct foodProduct1 : shelf1) {
+        List<FoodProduct> shelf1 = new LinkedList<>(List.of(dairyProducts()));
 
-            System.out.println(foodProduct1 + " руб.");
+        for (FoodProduct foodProduct1 : shelf1) {
+            System.out.println(foodProduct1);
         }
         System.out.println("Всего " + shelf1.size() + " шт.");
-        System.out.println(NAME + " взял с полки 3 шт. " + foodProduct + " руб. которые стоят под номером : ");
+        System.out.println(NAME + " взял с полки " + shelf1.get(2) + ".");
+        System.out.println(NAME + " взял с полки " + shelf1.get(4) + ".");
+        System.out.println(NAME + " взял с полки " + shelf1.get(6) + "." + "\n");
 
-        for (int i = 0; i < 8; i++) {
-
-            if ((i % 2) == 0 && i != 0)
-
-                System.out.println(i + " - " + foodProduct + " руб.");
-        }
         shelf1.remove(2);
         shelf1.remove(4);
         shelf1.remove(6);
+        System.out.println("Осталось продуктов на полке: ");
 
         for (FoodProduct foodProduct1 : shelf1) {
 
             System.out.println(foodProduct1 + " руб.");
         }
-        System.out.println("Осталось " + shelf1.size() + " шт.");
+        System.out.println(shelf1.size() + " шт.");
+
+        return shelf1;
 
     }
 
-    public void lookingForProductsOnAShelfTwo(Shelf shelfTwo, FoodProduct foodProduct) {
+    public void lookingForProductsOnAShelfTwo(Shelf shelfTwo) {
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfTwo.getNumber() +
                 " молочного отдела и начинает искать интересующие его продукты.");
         Map<String, FoodProduct> shelf2 = new HashMap<>();
-        shelf2.put("№ 1 - Кефир", new Kefir("Kefir Rustic", 150, 123456, "MKK"));
-        shelf2.put("№ 2 - Сыр", new Cheese("Parmezan", 650, 147258, "ITA"));
-        shelf2.put("№ 3 - Сыр", new Cheese("Cheese Tofu", 450, 478963, "ITA"));
-        shelf2.put("№ 4 - Кефир", new Kefir("Kefir Urban", 120, 112456, "RU"));
-        shelf2.put("№ 5 - Сыр", new Cheese("Cheese Chechil", 780, 632145, "ITA"));
-        shelf2.put("№ 6 - Кефир", new Kefir("Kefir Ladybug", 200, 332654, "RU"));
-        shelf2.put("№ 7 - Сыр", new Cheese("Ricotta", 950, 456987, "ITA"));
+        shelf2.put("1 ", new Kefir("Kefir Rustic", 150, 123456, "MKK"));
+        shelf2.put("2 ", new Cheese("Parmezan", 650, 147258, "ITA"));
+        shelf2.put("3 ", new Cheese("Cheese Tofu", 450, 478963, "ITA"));
+        shelf2.put("4 ", new Kefir("Kefir Urban", 120, 112456, "RU"));
+        shelf2.put("5 ", new Cheese("Cheese Chechil", 780, 632145, "ITA"));
+        shelf2.put("6 ", new Kefir("Kefir Ladybug", 200, 332654, "RU"));
+        shelf2.put("7 ", new Cheese("Ricotta", 950, 456987, "ITA"));
         System.out.println("На полке стоят продукты :");
         for (Map.Entry<String, FoodProduct> entry : shelf2.entrySet()) {
             String key = entry.getKey();
@@ -192,19 +184,12 @@ public class Customer extends Person implements EntryInTheDiary {
         }
 
         List<FoodProduct> list = new ArrayList<>(shelf2.values());
-        for (int i = 0; i < 7; i++) {
-           // if (i == )) {
-                System.out.println();
-            }
+        System.out.println(NAME + " берёт интересующие его продукты :");
 
-
-          //  System.out.println(NAME + " берёт интересующие его продукты :");
-        }
-
-       // System.out.println(list.get(3));
-       // System.out.println(list.get(5));
+        System.out.println(list.get(3));
+        System.out.println(list.get(5));
     }
-
+}
 
 
 

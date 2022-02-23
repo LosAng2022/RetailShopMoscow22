@@ -41,7 +41,7 @@ public class Merchandiser extends Person {
     }
 
     // расчёт инфляции для продукта
-    public void inflation(FoodProduct foodProduct) {
+    public int inflation(FoodProduct foodProduct) {
         System.out.println("Введите цену продукта (первый кефир, затем сыр) :");
         int x = foodProduct.getProductPrice();
         x = scanner.nextInt();
@@ -52,6 +52,8 @@ public class Merchandiser extends Person {
         foodProduct.setProductPrice(z);
         System.out.println(NAME + " меняет цену продукта - " + "В связи с ростом инфляции цена продукта "
                 + foodProduct.getProductName() + " составляет: " + z + " руб.");
+
+        return inflation;
 
     }
 

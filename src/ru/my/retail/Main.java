@@ -50,17 +50,14 @@ public class Main {
 // Покупатель и его функции
          Customer customer = new Customer();
          customer.checkCustomer(shop, kefir, kefir, cheese);
-         customer.lookingForProductsOnAShelfOne(shelfOne, kefir, shop);
-         customer.lookingForProductsOnAShelfTwo(shelfTwo, cheese);
+         customer.lookingForProductsOnAShelfOne(shelfOne,shop);
+         customer.lookingForProductsOnAShelfTwo(shelfTwo);
+
 
 
          }
 
-
      }
-
-
-
 
 
 

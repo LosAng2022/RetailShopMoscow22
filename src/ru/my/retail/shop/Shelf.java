@@ -43,7 +43,7 @@ public class Shelf implements ProductForHealthyDiet {
     }
 
     public void productOnShelfOne(Kefir kefir, Cheese cheese, Shelf shelfOne) {
-        List<FoodProduct> productsOnAShelf = new ArrayList<>(List.of(dairyProducts(kefir, cheese)));
+        List<FoodProduct> productsOnAShelf = new ArrayList<>(List.of(dairyProducts()));
         System.out.println("На " + shelfOne.getName() + " " + shelfOne.getNumber() + " находятся продукты :" + productsOnAShelf);
         System.out.println((long) productsOnAShelf.size() + " шт. количество продуктов находится на полке.");
         productsOnAShelf.remove(kefir);
@@ -65,7 +65,7 @@ public class Shelf implements ProductForHealthyDiet {
 
     public void productOnShelfTwo(Cheese cheese, Kefir kefir, Shelf shelfTwo) {
         System.out.println();
-        LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>(List.of(dairyProducts(kefir, cheese)));
+        LinkedList<FoodProduct> productsOnAShelfTwo = new LinkedList<>(List.of(dairyProducts()));
         System.out.println("На " + shelfTwo.getName() + " " + shelfTwo.getNumber() + " находятся новые продукты :" + productsOnAShelfTwo);
         System.out.println("Первый продукт на полке - " + productsOnAShelfTwo.getFirst());
         System.out.println("Породукт на полке под № 4 (он стоит последним) : " + productsOnAShelfTwo.get(3));

@@ -118,7 +118,7 @@ public class Shop {
     }
 
     public void newProductsCounter() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             addFoodProduct(selectAnyProduct());
         }
 
@@ -128,7 +128,7 @@ public class Shop {
 
     private static FoodProduct selectAnyProduct() {
         Random r = new Random();
-        int i = r.nextInt(50);
+        int i = r.nextInt(10);
         if (i % 2 == 0) {
             return new Kefir("Kefir Urban", 120, 112456, "RU");
 
@@ -145,8 +145,7 @@ public class Shop {
     }
 
 
-
-    }
+}
 
 
 
