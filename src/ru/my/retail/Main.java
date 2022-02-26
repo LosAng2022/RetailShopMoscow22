@@ -41,8 +41,8 @@ public class Main {
          Shelf shelfOne = shop.getShelfOne();
          Shelf shelfTwo = shop.getShelfTwo();
 // продукты на полке
-         shelfOne.productOnShelfOne(kefir, cheese, shelfOne);
-         shelfTwo.productOnShelfTwo(cheese, kefir, shelfTwo);
+         shelfOne.productOnShelfOne(dairyProducts()[2], shelfOne);
+         shelfTwo.productOnShelfTwo(dairyProducts()[2], shelfTwo);
 // Менчейдайзер и его функции
          Merchandiser merchandiser = new Merchandiser();
          merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
@@ -52,8 +52,6 @@ public class Main {
          customer.checkCustomer(shop, kefir, kefir, cheese);
          customer.lookingForProductsOnAShelfOne(shelfOne,shop);
          customer.lookingForProductsOnAShelfTwo(shelfTwo);
-
-
 
          }
 

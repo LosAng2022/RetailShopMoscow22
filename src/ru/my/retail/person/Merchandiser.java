@@ -53,7 +53,7 @@ public class Merchandiser extends Person {
         System.out.println(NAME + " меняет цену продукта - " + "В связи с ростом инфляции цена продукта "
                 + foodProduct.getProductName() + " составляет: " + z + " руб.");
 
-        return inflation;
+        return z;
 
     }
 

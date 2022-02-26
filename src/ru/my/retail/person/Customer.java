@@ -180,14 +180,23 @@ public class Customer extends Person implements EntryInTheDiary {
             String value = String.valueOf(entry.getValue());
             System.out.print(key + ": ");
             System.out.println(value);
-
         }
-
         List<FoodProduct> list = new ArrayList<>(shelf2.values());
+        String ita = "ITA";
+        System.out.println(" ");
+        System.out.println(NAME + " находит интересующие его продукты:");
+        for (FoodProduct foodProduct : list) {
+            if (foodProduct.getManufacturer().equals(ita))
+                System.out.println("Продукт сыр найден: ".toUpperCase() + foodProduct.getProductName());
+            else
+                System.out.println("Другой продукт!");
+        }
         System.out.println(NAME + " берёт интересующие его продукты :");
-
-        System.out.println(list.get(3));
+        System.out.println(list.get(0));
+        System.out.println(list.get(2));
+        System.out.println(list.get(4));
         System.out.println(list.get(5));
+
     }
 }
 
