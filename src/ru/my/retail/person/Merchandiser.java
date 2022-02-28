@@ -1,5 +1,8 @@
 package ru.my.retail.person;
+import java.io.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import ru.my.retail.product.Cheese;
@@ -53,7 +56,7 @@ public class Merchandiser extends Person {
         System.out.println(NAME + " меняет цену продукта - " + "В связи с ростом инфляции цена продукта "
                 + foodProduct.getProductName() + " составляет: " + z + " руб.");
 
-        return z;
+        return (z);
 
     }
 
@@ -163,7 +166,56 @@ public class Merchandiser extends Person {
         }
 
     }
+
+    private static void enteringProductsIntoDatabase(Scanner sc) {
+        String productName = sc.next();
+        int productPrice = sc.nextInt();
+        int barCode = sc.nextInt();
+        String manufacturer = sc.next();
+
+        try (BufferedWriter fw = new BufferedWriter(new FileWriter("my1.txt", true))) {
+            fw.write("Продукт: " + productName + "\n");
+            fw.write("Цена: " + productPrice + "\n");
+            fw.write("штрих-код: " + barCode + "\n");
+            fw.write("Производитель: " + manufacturer + "\n");
+            fw.write("\n");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void databaseBrowsing(Scanner sc) {
+        String fileName = sc.next();
+        try (BufferedReader reader = new BufferedReader(new FileReader("my1.txt"))) {
+            fileName = reader.readLine();
+            while (fileName != null) {
+                System.out.println(fileName);
+                fileName = reader.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void shopProductsDatabase() {
+        File f = new File("file.product/food_product.txt");
+        System.out.println(NAME + " вносит продукты в базу данных магазина.");
+        System.out.println("Внести новые продукты или выгрузить список продуктов в базу данных магазина ?");
+        System.out.println("1. Внести.");
+        System.out.println("2. Выгрузить и отобразить (my1.txt).");
+
+        Scanner sc = new Scanner(System.in);
+        int choose = sc.nextInt();
+        if (choose == 1) {
+            System.out.println("Введите данные продукта");
+            enteringProductsIntoDatabase(sc);
+        } else if (choose == 2) {
+            databaseBrowsing(sc);
+        }
+    }
 }
+
 
 
 
