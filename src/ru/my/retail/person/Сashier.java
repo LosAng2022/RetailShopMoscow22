@@ -19,7 +19,6 @@ public class Сashier extends Person  {
     Scanner scanner = new Scanner(System.in);
 
     public Сashier() {
-        super();
     }
 
     public Сashier(String name, String genderOfPerson, short age, String placeOfWork) {

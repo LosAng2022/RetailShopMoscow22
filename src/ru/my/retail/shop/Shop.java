@@ -1,5 +1,6 @@
 package ru.my.retail.shop;
 
+import ru.my.retail.model.Day;
 import ru.my.retail.product.Cheese;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
@@ -15,6 +16,7 @@ public class Shop {
     protected Kassa kassaOne;
     protected Kassa kassaTwo;
     protected Shelf shelfOne, shelfTwo, shelfThree;
+    protected ShopService shopService;
 
     private FoodProduct[] foodProducts = new FoodProduct[10];
     private int productIndex;
@@ -26,6 +28,7 @@ public class Shop {
         shelfThree = new Shelf("Полка", 3);
         kassaOne = new Kassa("Касса № 1", 10000);
         kassaTwo = new Kassa("Касса № 2", 10005);
+        shopService = new ShopService("Доставка");
     }
 
     public Shop(String nameShop) {
@@ -66,6 +69,10 @@ public class Shop {
 
     public Shelf getShelfThree() {
         return shelfThree;
+    }
+
+    public ShopService getShopService() {
+        return shopService;
     }
 
     public int storeRevenue() {  // выручка магазина
@@ -144,6 +151,17 @@ public class Shop {
 
     }
 
+    public void delivery () {
+        System.out.println("Доставка купленных товаров только в рабочие дни!");
+
+        Day[] days = Day.values();
+        for (Day day : days) {
+            System.out.println(day);
+
+        }
+        System.out.println("Введите пожалуйста день недели: ");
+
+    }
 
 }
 

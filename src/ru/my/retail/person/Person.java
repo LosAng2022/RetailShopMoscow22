@@ -9,8 +9,16 @@ public abstract class Person {
 
     private String name, genderOfPerson;
     private short age;
+    private String phoneNumber;
 
     public Person() {
+
+    }
+
+    public Person(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+
 
     }
 
@@ -46,11 +54,27 @@ public abstract class Person {
             this.age = age;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
    public abstract void helloDeveloper();
 
-
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", genderOfPerson='" + genderOfPerson + '\'' +
+                ", age=" + age +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }
-
 
 
 
