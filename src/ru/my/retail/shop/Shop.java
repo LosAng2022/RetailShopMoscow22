@@ -152,7 +152,8 @@ public class Shop {
     }
 
     public void delivery () {
-        System.out.println("Доставка купленных товаров только в рабочие дни!");
+        System.out.println("Магазин " + NAME_SHOP + " информирует всех покупателей, что доставка купленных товаров осуществляется" +
+                " только в рабочие дни!");
 
         Day[] days = Day.values();
         for (Day day : days) {

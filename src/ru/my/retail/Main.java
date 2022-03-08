@@ -28,7 +28,7 @@ public class Main {
         ShopService shopService = new ShopService();
 // кассир и его функции
         Сashier cashier = new Сashier();
-        cashier.checkKassaAndCashier(kassaOne);
+        cashier.checkKassaAndCashier(kassaOne); // throw
 // прибыль магазина
         shop.shopProfit(shop);
 // продукты
@@ -60,6 +60,7 @@ public class Main {
        shop.delivery();
        Courier courier = shopService.confirmDelivery(kefir, scanner.next());
        System.out.println(courier);
+
 
     }
 

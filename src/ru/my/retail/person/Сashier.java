@@ -8,7 +8,7 @@ import ru.my.retail.shop.Shop;
 
 import java.util.Scanner;
 
-public class Сashier extends Person  {
+public class Сashier extends Person {
 
     public static final String NAME = "Alice";
     public static final short AGE = 35;
@@ -22,8 +22,9 @@ public class Сashier extends Person  {
     }
 
     public Сashier(String name, String genderOfPerson, short age, String placeOfWork) {
-        super(name,genderOfPerson,age);
+        super(name, genderOfPerson, age);
         this.placeOfWork = placeOfWork;
+
 
     }
 
@@ -42,11 +43,27 @@ public class Сashier extends Person  {
     }
 
     // приветствие кассира
-    public void checkCashier() {
-        System.out.println("Введите возраст (он же пин для кассы) " + AGE + ".");
-        int s = scanner.nextShort();
+    public int checkCashier() {
+        System.out.println("Введите возраст (он же пин для кассы).");
+        short result = 18;
+        short age = scanner.nextShort();
+        setAge(age);
+        try {
+            if (age < 18 || age > 65) throw new Exception("Возраст кассира меньше 18 или больше 65!!!!!!!!");
 
-        System.out.println("Имя: " + NAME + " возраст " + AGE + " место работы: " + PLACE_OF_WORK + " , кассир.");
+            for (int i = 1; i <= age; i++) {
+
+                result *= i;
+            }
+        } catch (Exception ex) {
+
+            System.out.println(ex.getMessage());
+            result = age;
+
+        }
+        System.out.println("Имя: " + NAME + " возраст " + getAge() + ", место работы: " + PLACE_OF_WORK + " , кассир.");
+        return age;
+
     }
 
     private void reportCashier(Kassa kassaOne) {
