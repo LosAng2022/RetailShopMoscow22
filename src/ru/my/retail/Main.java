@@ -22,6 +22,7 @@ public class Main {
 // создание магазина
         Shop shop = new Shop();
         shop.newProductsInShop();
+        shop.informingTheStore();
 // создание кассы в магазине
         Kassa kassaOne = shop.getKassaOne();
         Kassa kassaTwo = shop.getKassaTwo();

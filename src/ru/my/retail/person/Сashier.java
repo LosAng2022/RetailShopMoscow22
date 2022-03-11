@@ -30,6 +30,7 @@ public class Сashier extends Person {
 
     @Override
     public void helloDeveloper() {
+        System.out.println(" ");
         System.out.println("Привет крутой разработчик! Я кассир!");
     }
 

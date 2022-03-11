@@ -4,6 +4,9 @@ import ru.my.retail.model.Day;
 import ru.my.retail.product.Cheese;
 import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
+import ru.my.retail.shop.informing.InformingByEmail;
+import ru.my.retail.shop.informing.InformingBySms;
+import ru.my.retail.shop.informing.InformingTheCustomer;
 
 import java.util.*;
 
@@ -17,6 +20,7 @@ public class Shop {
     protected Kassa kassaTwo;
     protected Shelf shelfOne, shelfTwo, shelfThree;
     protected ShopService shopService;
+    Scanner scanner = new Scanner(System.in);
 
     private FoodProduct[] foodProducts = new FoodProduct[10];
     private int productIndex;
@@ -131,6 +135,7 @@ public class Shop {
 
         for (int i = 0; i < getFoodProduct().length; i++)
             System.out.println("Молочный продукт : " + getFoodProduct()[i] + " руб.");
+        System.out.println(" ");
     }
 
     private static FoodProduct selectAnyProduct() {
@@ -161,6 +166,21 @@ public class Shop {
 
         }
         System.out.println("Введите пожалуйста день недели: ");
+
+    }
+
+    public void informingTheStore () {
+        InformingTheCustomer sms = new InformingBySms();
+        InformingTheCustomer email = new InformingByEmail(sms);
+        System.out.println("Введите слово >>>>> Информировать");
+        String s = scanner.nextLine();
+        System.out.println();
+        if (s.equals("Информировать")) {
+            email.send("Уважаемые покупатели! Сегодня для Вас в магазине " + NAME_SHOP + " действуют скидки по карте магазина " +
+                    "в размере 30 % на всю молочную продукцию. Ждём Вас!!!.");
+        } else {
+            System.out.println("Скидок нет, магазин не информирует.");
+        }
 
     }
 
