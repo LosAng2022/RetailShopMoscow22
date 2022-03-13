@@ -1,6 +1,6 @@
 package ru.my.retail;
-import ru.my.retail.model.Day;
 import ru.my.retail.person.Courier;
+import ru.my.retail.stream.TheStreamThread;
 import ru.my.retail.person.Customer;
 import ru.my.retail.person.Merchandiser;
 import ru.my.retail.person.Сashier;
@@ -61,11 +61,17 @@ public class Main {
        shop.delivery();
        Courier courier = shopService.confirmDelivery(kefir, scanner.next());
        System.out.println(courier);
-
-
+// поток
+        System.out.println("Поток метода main запустился");
+        new TheStreamThread("Мой первый поток").start();
+        new TheStreamThread("Мой первый поток").runThread();
+        System.out.println("Поток метода main остановился");
     }
 
 }
+
+
+
 
 
 
