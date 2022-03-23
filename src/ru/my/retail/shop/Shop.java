@@ -7,8 +7,11 @@ import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.informing.InformingByEmail;
 import ru.my.retail.shop.informing.InformingBySms;
 import ru.my.retail.shop.informing.InformingTheCustomer;
+import ru.my.retail.stream.TheStreamThread;
 
 import java.util.*;
+
+import static ru.my.retail.product.DairyProduct.dairyProducts;
 
 public class Shop {
 
@@ -20,6 +23,7 @@ public class Shop {
     protected Kassa kassaTwo;
     protected Shelf shelfOne, shelfTwo, shelfThree;
     protected ShopService shopService;
+    protected Basket basket;
     Scanner scanner = new Scanner(System.in);
 
     private FoodProduct[] foodProducts = new FoodProduct[10];
@@ -33,6 +37,8 @@ public class Shop {
         kassaOne = new Kassa("Касса № 1", 10000);
         kassaTwo = new Kassa("Касса № 2", 10005);
         shopService = new ShopService("Доставка");
+        basket = new Basket();
+
     }
 
     public Shop(String nameShop) {
@@ -73,6 +79,10 @@ public class Shop {
 
     public Shelf getShelfThree() {
         return shelfThree;
+    }
+
+    public Basket getBasket () {
+        return basket;
     }
 
     public ShopService getShopService() {
@@ -166,6 +176,7 @@ public class Shop {
 
         }
         System.out.println("Введите пожалуйста день недели: ");
+        System.out.println("Только чуть ниже - тут поток залез : ".toUpperCase());
 
     }
 
@@ -184,6 +195,20 @@ public class Shop {
 
     }
 
+    public static void checkingProductsOnShelves() {
+        new TheStreamThread("подсчёт продуктов на полках").productCountingOnShelf(new ArrayList<>(List.of(dairyProducts())), new LinkedList<>(List.of(dairyProducts())));
+    }
+
+    public static Shop shopBilla() {
+        Shop shop = new Shop();
+        shop.newProductsInShop();
+        shop.informingTheStore();
+        shop.shopProfit(shop);
+        checkingProductsOnShelves(); // поток
+        return shop;
+
+
+    }
 }
 
 

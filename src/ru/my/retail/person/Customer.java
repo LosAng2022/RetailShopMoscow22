@@ -5,6 +5,8 @@ import ru.my.retail.product.FoodProduct;
 import ru.my.retail.product.Kefir;
 import ru.my.retail.shop.Shelf;
 import ru.my.retail.shop.Shop;
+import ru.my.retail.stream.Resource;
+import ru.my.retail.stream.ThreadResource;
 
 import java.util.*;
 
@@ -133,7 +135,7 @@ public class Customer extends Person implements EntryInTheDiary {
 
     }
 
-    public List<FoodProduct> lookingForProductsOnAShelfOne(Shelf shelfOne, Shop shop) {
+    public void lookingForProductsOnAShelfOne(Shelf shelfOne, Shop shop) {
         enterTheShop(shop);
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfOne.getNumber() +
                 " молочного отдела и начинает искать интересующие его продукты.");
@@ -159,11 +161,9 @@ public class Customer extends Person implements EntryInTheDiary {
         }
         System.out.println(shelf1.size() + " шт.");
 
-        return shelf1;
-
     }
 
-    public void lookingForProductsOnAShelfTwo(Shelf shelfTwo) {
+    public static Map<String, FoodProduct> lookingForProductsOnAShelfTwo(Shelf shelfTwo) {
         System.out.println(NAME + " подходит к продуктовой полке № " + shelfTwo.getNumber() +
                 " молочного отдела и начинает искать интересующие его продукты.");
         Map<String, FoodProduct> shelf2 = new HashMap<>();
@@ -197,6 +197,26 @@ public class Customer extends Person implements EntryInTheDiary {
         System.out.println(list.get(4));
         System.out.println(list.get(5));
 
+        return shelf2;
+
+    }
+
+    public void customerCountsProducts() {
+        System.out.println(NAME + " решил посмотреть на все продукты на и пересчитать их, но это сделал и другой покупатель");
+        Resource resource = new Resource();
+        for (int i = 1; i < 3; i++) {
+            Thread thread = new Thread(new ThreadResource(resource));
+            thread.start();
+
+        }
+    }
+
+    public static void customerActions(Shop shop, Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo) {
+        Customer customer = new Customer();
+        customer.checkCustomer(shop, kefir, kefir, cheese);
+        customer.lookingForProductsOnAShelfOne(shelfOne, shop);
+        Customer.lookingForProductsOnAShelfTwo(shelfTwo);
+        customer.customerCountsProducts();
     }
 }
 

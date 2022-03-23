@@ -1,74 +1,59 @@
 package ru.my.retail;
 import ru.my.retail.person.Courier;
+import ru.my.retail.shop.*;
+import ru.my.retail.stream.Resource;
 import ru.my.retail.stream.TheStreamThread;
 import ru.my.retail.person.Customer;
 import ru.my.retail.person.Merchandiser;
 import ru.my.retail.person.Сashier;
 import ru.my.retail.product.Cheese;
 import ru.my.retail.product.Kefir;
-import ru.my.retail.shop.Kassa;
-import ru.my.retail.shop.Shelf;
-import ru.my.retail.shop.Shop;
-import ru.my.retail.shop.ShopService;
+import ru.my.retail.stream.ThreadResource;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
+import static ru.my.retail.person.Courier.courierActions;
+import static ru.my.retail.person.Customer.customerActions;
+import static ru.my.retail.person.Merchandiser.merchandiserActions;
+import static ru.my.retail.person.Сashier.cashierActions;
+import static ru.my.retail.product.Cheese.getCheese;
 import static ru.my.retail.product.DairyProduct.dairyProducts;
+import static ru.my.retail.product.Kefir.getKefir;
+import static ru.my.retail.shop.Shop.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-// создание магазина
-        Shop shop = new Shop();
-        shop.newProductsInShop();
-        shop.informingTheStore();
-// создание кассы в магазине
+       Scanner scanner = new Scanner(System.in);
+
+       Shop shop = shopBilla(); // поток
         Kassa kassaOne = shop.getKassaOne();
         Kassa kassaTwo = shop.getKassaTwo();
         ShopService shopService = new ShopService();
-// кассир и его функции
-        Сashier cashier = new Сashier();
-        cashier.checkKassaAndCashier(kassaOne); // throw
-// прибыль магазина
-        shop.shopProfit(shop);
-// продукты
-        Kefir kefir = new Kefir("Kefir Rustic", 150, 123456, "11/02/2022", "MKK",
-                10.5, 7.2, 15.0, 25, "Tetra Pack");
-        kefir.kefirForSail(kefir);
-        kefir.forEating(kefir);
-        Cheese cheese = new Cheese("Parmezan", 650, 147258, "ITA",
-                "11/02/2022", 10.5, 20.2, 40.0, 30, "Wox");
-        cheese.cheeseForSail(cheese);
-        cheese.forEating(cheese);
-// продуктовые полки
+        Basket basket = shop.getBasket();
         Shelf shelfOne = shop.getShelfOne();
         Shelf shelfTwo = shop.getShelfTwo();
-// продукты на полке
+        Shelf shelfThree = shop.getShelfThree();
+        cashierActions(kassaOne);
+        Kefir kefir = getKefir();
+        Cheese cheese = getCheese();
         shelfOne.productOnShelfOne(dairyProducts()[2], shelfOne);
         shelfTwo.productOnShelfTwo(dairyProducts()[2], shelfTwo);
-// Менчейдайзер и его функции
-        Merchandiser merchandiser = new Merchandiser();
-        merchandiser.shopProductsDatabase();
-        merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
-        merchandiser.checkTheProductOnTheShelf(kefir, cheese);
-// Покупатель и его функции
-        Customer customer = new Customer();
-        customer.checkCustomer(shop, kefir, kefir, cheese);
-        customer.lookingForProductsOnAShelfOne(shelfOne,shop);
-        customer.lookingForProductsOnAShelfTwo(shelfTwo);
-//доставка
-       shop.delivery();
-       Courier courier = shopService.confirmDelivery(kefir, scanner.next());
-       System.out.println(courier);
-// поток
-        System.out.println("Поток метода main запустился");
-        new TheStreamThread("Мой первый поток").start();
-        new TheStreamThread("Мой первый поток").runThread();
-        System.out.println("Поток метода main остановился");
+        merchandiserActions(kefir, cheese, shelfOne, shelfTwo);
+        customerActions(shop, kefir, cheese, shelfOne, shelfTwo); // поток
+        courierActions(scanner, shop, shopService, kefir);
+
     }
 
 }
+
+
+
+
+
 
 
 

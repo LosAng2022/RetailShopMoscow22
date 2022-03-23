@@ -93,4 +93,8 @@ public class Сashier extends Person {
         reportCashier(kassaOne);
 
     }
+    public static void cashierActions(Kassa kassaOne) {
+        Сashier cashier = new Сashier();
+        cashier.checkKassaAndCashier(kassaOne); // throw
+    }
 }

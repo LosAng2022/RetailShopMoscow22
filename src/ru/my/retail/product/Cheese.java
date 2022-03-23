@@ -60,6 +60,14 @@ public class Cheese extends DairyProduct {
     public String toString() {
         return super.toString();
     }
+
+
+    public static Cheese getCheese() {
+        Cheese cheese = new Cheese("Parmezan", 650, 147258, "ITA",
+                "11/02/2022", 10.5, 20.2, 40.0, 30, "Wox");
+        cheese.cheeseForSail(cheese);
+        cheese.forEating(cheese);
+        return cheese;
+
+    }
 }
-
-

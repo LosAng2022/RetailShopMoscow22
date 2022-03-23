@@ -67,6 +67,14 @@ public class Kefir extends DairyProduct {
         return super.toString();
     }
 
+    public static Kefir getKefir() {
+        Kefir kefir = new Kefir("Kefir Rustic", 150, 123456, "11/02/2022", "MKK",
+                10.5, 7.2, 15.0, 25, "Tetra Pack");
+        kefir.kefirForSail(kefir);
+        kefir.forEating(kefir);
+        return kefir;
+    }
+
 
     }
 

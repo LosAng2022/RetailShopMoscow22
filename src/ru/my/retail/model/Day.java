@@ -9,7 +9,7 @@ public enum Day {
     //SATURDAY
     //SUNDAY
     private String name;
-    Day(String name) {
+    private Day(String name) {
         this.name = name;
     }
 

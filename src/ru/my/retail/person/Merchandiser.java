@@ -214,6 +214,13 @@ public class Merchandiser extends Person {
             databaseBrowsing(sc);
         }
     }
+
+    public static void merchandiserActions(Kefir kefir, Cheese cheese, Shelf shelfOne, Shelf shelfTwo) {
+        Merchandiser merchandiser = new Merchandiser();
+        merchandiser.shopProductsDatabase();
+        merchandiser.checkTheProductBeforeSale(kefir, cheese, shelfOne, shelfTwo, merchandiser);
+        merchandiser.checkTheProductOnTheShelf(kefir, cheese);
+    }
 }
 
 

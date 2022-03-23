@@ -97,7 +97,11 @@ public class Shelf implements ProductForHealthyDiet {
             continue;
         }
     }
+        public void productOnShelfThree(FoodProduct foodProduct) {
+        List<FoodProduct> products = new ArrayList<>();
+        System.out.println(products);
 
+    }
 
     @Override
     public void forHealthyDiet() {
